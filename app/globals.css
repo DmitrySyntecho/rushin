@@ -243,3 +243,67 @@ textarea:focus {
   opacity: 0.35;
   cursor: default;
 }
+
+/* ============ Responsive / mobile ============ */
+@media (max-width: 900px) {
+  .ri-sec {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important;
+  }
+  .ri-flex-gap {
+    gap: 40px !important;
+  }
+  .ri-foot-wrap {
+    padding-top: 56px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .ri-sec {
+    padding-top: 46px !important;
+    padding-bottom: 46px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .ri-flex-gap {
+    gap: 30px !important;
+  }
+  .ri-foot-wrap {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  /* Hero */
+  .ri-hero-content {
+    padding-top: 44px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    gap: 8px !important;
+  }
+  .ri-hero-left {
+    flex-basis: 100% !important;
+    padding-bottom: 24px !important;
+  }
+  .ri-hero-visual {
+    flex-basis: 100% !important;
+    min-height: 400px !important;
+    width: 100%;
+  }
+  .ri-hero-vadim {
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    object-position: bottom center !important;
+    max-height: 440px !important;
+  }
+  /* Slightly tighter type on phones */
+  .ri-hero-left h1 {
+    font-size: 33px !important;
+  }
+}
+
+/* Prevent accidental horizontal scroll on small screens */
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}

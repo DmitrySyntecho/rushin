@@ -41,7 +41,7 @@ export function HowItWorks() {
   ];
   return (
     <section id="about" style={{ background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto' }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>How it works</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
@@ -72,7 +72,7 @@ export function UrgentSameDay() {
   return (
     <section style={{ background: 'linear-gradient(120deg, #1D2A5E 0%, #283778 55%, #33438D 100%)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: -80, right: -60, width: 380, height: 380, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,200,5,0.16), transparent 65%)' }} />
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '80px 24px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 48, position: 'relative' }}>
+      <div className="ri-sec ri-flex-gap" style={{ maxWidth: 1240, margin: '0 auto', padding: '80px 24px', display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 48, position: 'relative' }}>
         <div style={{ flex: '1 1 480px', minWidth: 300 }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,200,5,0.14)', border: '1px solid rgba(255,200,5,0.4)', color: '#FFC805', borderRadius: 999, padding: '8px 16px', fontSize: 12.5, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
             <Svg inner={IC.zap} size={14} sw={2.2} />
@@ -139,7 +139,7 @@ export function International() {
   const chips = ['Ukraine', 'Russia', 'Kazakhstan', 'Israel', 'Uzbekistan', '+ more'];
   return (
     <section id="international" style={{ background: '#F6F8FC' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-end', justifyContent: 'space-between' }}>
           <div style={{ maxWidth: 620 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>International documents</div>
@@ -228,7 +228,7 @@ export function Immigration() {
   ];
   return (
     <section id="immigration" style={{ background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56 }}>
+      <div className="ri-sec ri-flex-gap" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56 }}>
         <div style={{ flex: '1 1 380px', minWidth: 300 }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>Immigration · Identity · Travel</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
@@ -292,7 +292,7 @@ export function Offices() {
   ];
   return (
     <section id="offices" style={{ background: '#F6F8FC' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>Our offices</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
@@ -350,7 +350,7 @@ export function Team() {
   ];
   return (
     <section style={{ background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24 }}>
           <div style={{ maxWidth: 560 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>Our team</div>
@@ -389,7 +389,7 @@ export function Reviews() {
   ];
   return (
     <section style={{ background: '#F6F8FC' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ textAlign: 'center', maxWidth: 620, margin: '0 auto' }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>Reviews</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
@@ -434,7 +434,7 @@ export function FinalCta() {
   const inputStyle: React.CSSProperties = { border: '1.5px solid #E4E8F3', borderRadius: 12, padding: '13px 16px', fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: '#1D2540', outline: 'none' };
   return (
     <section id="final-cta" style={{ background: 'linear-gradient(135deg, #F6F8FC 0%, #EAF2FC 60%, #FFF6DC 130%)' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'center' }}>
+      <div className="ri-sec ri-flex-gap" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'center' }}>
         <div style={{ flex: '1 1 460px', minWidth: 300 }}>
           <h2 className="font-ub" style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', lineHeight: 1.18, fontWeight: 700, color: '#1D2540', margin: 0 }}>
             Need notary, apostille, translation, or immigration document help?

@@ -50,7 +50,7 @@ export default function ServicesCarousel() {
 
   return (
     <section id="services" style={{ background: '#F6F8FC' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'flex-end', justifyContent: 'space-between' }}>
           <div style={{ maxWidth: 640 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>What we help with</div>

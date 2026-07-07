@@ -42,7 +42,7 @@ export default function Faq() {
 
   return (
     <section style={{ background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 880, margin: '0 auto', padding: '96px 24px' }}>
+      <div className="ri-sec" style={{ maxWidth: 880, margin: '0 auto', padding: '96px 24px' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>FAQ</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>

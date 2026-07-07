@@ -36,7 +36,7 @@ const colTitle: React.CSSProperties = { fontFamily: "'Ubuntu', sans-serif", font
 export default function Footer() {
   return (
     <footer id="news" style={{ background: '#1B2450', color: '#B9C1DE' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0' }}>
+      <div className="ri-foot-wrap" style={{ maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 44 }}>
           <div style={{ gridColumn: 'span 1' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 11 }}>

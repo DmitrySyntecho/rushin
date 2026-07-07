@@ -33,8 +33,8 @@ export default function Hero() {
       />
       <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18,25,58,0.2) 0%, rgba(18,25,58,0) 30%, rgba(18,25,58,0.45) 100%)' }} />
 
-      <div style={{ position: 'relative', maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0', display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-end' }}>
-        <div style={{ flex: '1 1 520px', minWidth: 320, paddingBottom: 88 }}>
+      <div className="ri-hero-content" style={{ position: 'relative', maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0', display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-end' }}>
+        <div className="ri-hero-left" style={{ flex: '1 1 520px', minWidth: 320, paddingBottom: 88 }}>
           <div
             style={{
               display: 'inline-flex',
@@ -80,10 +80,11 @@ export default function Hero() {
         </div>
 
         {/* Vadim standing on the right — no frame */}
-        <div style={{ flex: '1 1 320px', minWidth: 280, alignSelf: 'stretch', position: 'relative', minHeight: 480 }}>
+        <div className="ri-hero-visual" style={{ flex: '1 1 320px', minWidth: 280, alignSelf: 'stretch', position: 'relative', minHeight: 480 }}>
           <img
             src="/images/hero-vadim.webp"
             alt="Vadim — Executive Director & Immigration Consultant at Rush In"
+            className="ri-hero-vadim"
             style={{
               position: 'absolute',
               bottom: 0,

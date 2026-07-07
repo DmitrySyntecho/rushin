@@ -34,7 +34,7 @@ export default function Notarization() {
 
   return (
     <section id="notarization" style={{ background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56 }}>
+      <div className="ri-sec ri-flex-gap" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56 }}>
         <div style={{ flex: '1 1 380px', minWidth: 300 }}>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>Notary services</div>
           <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
