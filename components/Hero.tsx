@@ -63,22 +63,29 @@ export default function Hero() {
 
         {/* Hero visual: generated photo framed on the navy panel, with floating badges */}
         <div style={{ flex: '1 1 420px', minWidth: 320, position: 'relative', minHeight: 480 }}>
-          <div style={{ position: 'absolute', inset: '8% 4% 4% 8%', background: 'linear-gradient(135deg, #283778 0%, #33438D 60%, #3A5BB0 100%)', borderRadius: 28 }} />
+          <div style={{ position: 'absolute', inset: '10% -1% 3% 10%', background: 'linear-gradient(135deg, #283778 0%, #33438D 60%, #3A5BB0 100%)', borderRadius: 28 }} />
           <div
             style={{
               position: 'relative',
-              margin: '32px 44px 0 20px',
-              borderRadius: 22,
+              margin: '24px 30px 0 6px',
+              height: 470,
+              borderRadius: 24,
               overflow: 'hidden',
               boxShadow: '0 32px 64px -16px rgba(20,28,64,0.45)',
               border: '5px solid #FFFFFF',
-              aspectRatio: '4 / 5',
+              background: '#EEF2F9',
             }}
           >
             <img
-              src="/images/hero.webp"
-              alt="Rush In consultant helping a client with document services"
-              style={{ display: 'block', width: '100%', height: '100%', objectFit: 'cover' }}
+              src="/images/hero-bg.webp"
+              alt="Rush In documentation office in Southern California"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(29,42,94,0.12) 0%, rgba(29,42,94,0) 35%, rgba(29,42,94,0.35) 100%)' }} />
+            <img
+              src="/images/hero-vadim.webp"
+              alt="Vadim — Executive Director & Immigration Consultant at Rush In"
+              style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', height: '97%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', filter: 'drop-shadow(0 12px 24px rgba(20,28,64,0.35))' }}
             />
           </div>
 
