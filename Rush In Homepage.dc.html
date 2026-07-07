@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: 'Montserrat', sans-serif; color: #1D2540; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  a { color: #283778; text-decoration: none; }
+  a:hover { color: #33438D; }
+  @keyframes riFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes riFloat2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+  @media (max-width: 980px) {
+    [data-mq-desktop] { display: none !important; }
+    [data-mq-mobile] { display: flex !important; }
+    [data-mq-mobile-bar] { display: flex !important; }
+  }
+  @media (min-width: 981px) {
+    [data-mq-mobile] { display: none !important; }
+    [data-mq-mobile-bar] { display: none !important; }
+  }
+</style>
+</helmet>
+
+<!-- ============ STICKY HEADER ============ -->
+<header style="position: sticky; top: 0; z-index: 90; background: rgba(255,255,255,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid #E4E8F3;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; gap: 28px;">
+    <a href="#top" style="display: flex; align-items: center; gap: 11px; flex-shrink: 0;">
+      <div style="width: 40px; height: 40px; border-radius: 11px; background: #283778; display: flex; align-items: center; justify-content: center; position: relative;">
+        <span style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #FFFFFF;">R</span>
+        <span style="position: absolute; right: -3px; bottom: -3px; width: 13px; height: 13px; border-radius: 50%; background: #FFC805; border: 2px solid #FFFFFF;"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; line-height: 1;">
+        <span style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #283778; letter-spacing: -0.01em;">Rush In</span>
+        <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: #5B6480; text-transform: uppercase; margin-top: 3px;">Documentation Center</span>
+      </div>
+    </a>
+    <nav data-mq-desktop="" style="display: flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; flex: 1;">
+      <a href="#top" style="padding: 10px 14px; border-radius: 10px; color: #1D2540;" style-hover="background: #F2F5FB; color: #283778;">Home</a>
+      <a href="#about" style="padding: 10px 14px; border-radius: 10px; color: #1D2540;" style-hover="background: #F2F5FB; color: #283778;">About</a>
+      <div style="position: relative;" onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeServices }}">
+        <button onClick="{{ toggleServices }}" style="padding: 10px 14px; border-radius: 10px; color: #1D2540; font: inherit; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px;" style-hover="background: #F2F5FB; color: #283778;">
+          Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: 100%; left: 0; padding-top: 8px; width: 280px;">
+            <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 16px; box-shadow: 0 24px 48px -12px rgba(40,55,120,0.18); padding: 8px; display: flex; flex-direction: column;">
+              <a href="#services" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Russian Visa</a>
+              <a href="#international" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Apostille Services</a>
+              <a href="#notarization" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Mobile Notary</a>
+              <a href="#international" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Document Translation</a>
+              <a href="#immigration" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Live Scan</a>
+              <a href="#immigration" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Green Card</a>
+              <a href="#immigration" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Marriage-Based Green Card</a>
+              <a href="#services" style="padding: 10px 14px; border-radius: 10px; font-weight: 500; font-size: 14px;" style-hover="background: #F2F5FB;">Same-Day Marriage Services</a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <a href="#news" style="padding: 10px 14px; border-radius: 10px; color: #1D2540;" style-hover="background: #F2F5FB; color: #283778;">News</a>
+      <a href="#contacts" style="padding: 10px 14px; border-radius: 10px; color: #1D2540;" style-hover="background: #F2F5FB; color: #283778;">Contacts</a>
+      <a href="#offices" style="padding: 10px 14px; border-radius: 10px; color: #1D2540;" style-hover="background: #F2F5FB; color: #283778;">Our Offices</a>
+    </nav>
+    <div data-mq-desktop="" style="display: flex; align-items: center; gap: 16px; flex-shrink: 0;">
+      <div style="display: flex; border: 1px solid #E4E8F3; border-radius: 10px; overflow: hidden; font-size: 12px; font-weight: 700;">
+        <button onClick="{{ setLangEn }}" style="{{ langEnStyle }}">EN</button>
+        <button onClick="{{ setLangRu }}" style="{{ langRuStyle }}">RU</button>
+      </div>
+      <a href="tel:+13236451600" style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: #283778;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        +1 323 645 1600
+      </a>
+      <a href="#final-cta" style="background: #283778; color: #FFFFFF; padding: 12px 22px; border-radius: 12px; font-weight: 700; font-size: 14px; box-shadow: 0 8px 16px -6px rgba(40,55,120,0.4);" style-hover="background: #33438D; color: #FFFFFF; transform: translateY(-1px);">{{ ctaLabel }}</a>
+    </div>
+    <div data-mq-mobile="" style="display: none; flex: 1; justify-content: flex-end; align-items: center; gap: 12px;">
+      <a href="tel:+13236451600" style="display: flex; width: 42px; height: 42px; align-items: center; justify-content: center; border-radius: 12px; background: #F2F5FB; color: #283778;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      </a>
+      <button onClick="{{ toggleMobile }}" aria-label="Menu" style="width: 42px; height: 42px; border-radius: 12px; border: 1px solid #E4E8F3; background: #FFFFFF; color: #283778; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+  </div>
+  <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="background: #FFFFFF; border-bottom: 1px solid #E4E8F3; padding: 12px 24px 24px; display: flex; flex-direction: column; gap: 2px; font-weight: 600; font-size: 16px;">
+      <a href="#top" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">Home</a>
+      <a href="#about" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">About</a>
+      <a href="#services" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">Services</a>
+      <a href="#news" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">News</a>
+      <a href="#contacts" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">Contacts</a>
+      <a href="#offices" onClick="{{ closeMobile }}" style="padding: 14px 12px; border-radius: 10px;" style-hover="background: #F2F5FB;">Our Offices</a>
+      <a href="#final-cta" onClick="{{ closeMobile }}" style="margin-top: 12px; background: #283778; color: #FFFFFF; padding: 16px; border-radius: 12px; text-align: center; font-weight: 700;">{{ ctaLabel }}</a>
+    </div>
+  </sc-if>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" data-screen-label="Hero" style="background: linear-gradient(180deg, #F6F8FC 0%, #FFFFFF 100%); overflow: hidden;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center;">
+    <div style="flex: 1 1 480px; min-width: 320px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #283778; box-shadow: 0 4px 12px -4px rgba(40,55,120,0.12);">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: #FFC805; display: inline-block;"></span>
+        Southern California · Since 1994
+      </div>
+      <h1 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(34px, 4.4vw, 58px); line-height: 1.15; font-weight: 700; color: #1D2540; margin: 24px 0 0; letter-spacing: -0.01em; text-wrap: pretty;">
+        Professional Notary, Apostille &amp; Document Services — <span style="color: #283778;">Fast, Secure, Done Right</span>
+      </h1>
+      <p style="font-size: 17px; line-height: 1.65; color: #5B6480; margin: 20px 0 0; max-width: 560px; text-wrap: pretty;">
+        From notarization and apostille to translations, visas, passports, immigration documents, and Live Scan — get expert support from certified professionals with 30+ years of experience.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; align-items: center;">
+        <a href="#final-cta" style="background: #283778; color: #FFFFFF; padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px; box-shadow: 0 12px 24px -8px rgba(40,55,120,0.45);" style-hover="background: #33438D; color: #FFFFFF; transform: translateY(-2px);">{{ ctaLabel }}</a>
+        <a href="#final-cta" style="background: #FFFFFF; color: #283778; border: 1.5px solid #C9D2E8; padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 10px;" style-hover="border-color: #283778; transform: translateY(-2px);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+          Upload Documents
+        </a>
+        <a href="tel:+13236451600" style="font-weight: 700; font-size: 14px; color: #283778; text-decoration: underline; text-underline-offset: 4px;">Call 24-hour hotline</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 36px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #1D2540;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          185,000+ successful cases
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #1D2540;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+          Same-day &amp; mobile notary
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #1D2540;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"></path></svg>
+          Certified professionals
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: #1D2540;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          West Hollywood &amp; San Diego
+        </div>
+      </div>
+    </div>
+    <!-- Hero visual: documentation command center -->
+    <div style="flex: 1 1 420px; min-width: 320px; position: relative; min-height: 480px;">
+      <div style="position: absolute; inset: 8% 4% 4% 8%; background: linear-gradient(135deg, #283778 0%, #33438D 60%, #3A5BB0 100%); border-radius: 28px;"></div>
+      <!-- Apostille certificate card -->
+      <div style="position: relative; margin: 44px 60px 0 36px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 32px 64px -16px rgba(20,28,64,0.45); padding: 26px 28px; border: 1px solid #E4E8F3;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+          <div>
+            <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.14em; color: #283778;">APOSTILLE</div>
+            <div style="font-size: 10.5px; color: #5B6480; margin-top: 3px;">Convention de La Haye du 5 octobre 1961</div>
+          </div>
+          <div style="width: 54px; height: 54px; border-radius: 50%; border: 2px dashed #FFC805; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"></path></svg>
+          </div>
+        </div>
+        <div style="margin-top: 18px; display: flex; flex-direction: column; gap: 9px;">
+          <div style="height: 8px; border-radius: 4px; background: #EDF1F9; width: 88%;"></div>
+          <div style="height: 8px; border-radius: 4px; background: #EDF1F9; width: 72%;"></div>
+          <div style="height: 8px; border-radius: 4px; background: #EDF1F9; width: 80%;"></div>
+          <div style="height: 8px; border-radius: 4px; background: #EDF1F9; width: 52%;"></div>
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="font-size: 11px; font-weight: 700; color: #4AA4EA; letter-spacing: 0.08em;">STATE OF CALIFORNIA</div>
+          <div style="display: flex; align-items: center; gap: 6px; background: #F0F9EE; color: #2E7D46; border-radius: 999px; padding: 5px 12px; font-size: 11px; font-weight: 700;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            Authenticated
+          </div>
+        </div>
+      </div>
+      <!-- Passport card -->
+      <div style="position: relative; margin: -26px 30px 0 auto; width: 216px; background: linear-gradient(150deg, #1D2A5E, #283778); border-radius: 16px; box-shadow: 0 24px 48px -12px rgba(15,22,52,0.55); padding: 22px; border: 1px solid rgba(255,255,255,0.14);">
+        <div style="font-size: 10px; letter-spacing: 0.28em; color: rgba(255,255,255,0.75); font-weight: 600;">PASSPORT</div>
+        <div style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid #FFC805; margin: 16px auto; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"></path></svg>
+        </div>
+        <div style="height: 6px; border-radius: 3px; background: rgba(255,255,255,0.22); width: 70%; margin: 0 auto;"></div>
+        <div style="height: 6px; border-radius: 3px; background: rgba(255,255,255,0.14); width: 50%; margin: 8px auto 0;"></div>
+      </div>
+      <!-- Floating badges -->
+      <div style="position: absolute; top: 18px; right: 8px; background: #FFC805; color: #1D2540; border-radius: 14px; padding: 12px 18px; font-weight: 700; font-size: 13px; box-shadow: 0 16px 32px -10px rgba(150,110,0,0.45); display: flex; align-items: center; gap: 8px; animation: riFloat 5s ease-in-out infinite;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-13h-7l0-7z"></path></svg>
+        Same-day available
+      </div>
+      <div style="position: absolute; bottom: 34px; left: 0; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 14px; padding: 12px 18px; font-weight: 600; font-size: 12.5px; color: #1D2540; box-shadow: 0 16px 32px -10px rgba(40,55,120,0.25); display: flex; align-items: center; gap: 8px; animation: riFloat2 6s ease-in-out infinite;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Mobile notary · LA to San Diego
+      </div>
+      <div style="position: absolute; top: 42%; left: -6px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 14px; padding: 10px 16px; font-weight: 600; font-size: 12.5px; color: #1D2540; box-shadow: 0 16px 32px -10px rgba(40,55,120,0.25); display: flex; align-items: center; gap: 8px; animation: riFloat 7s ease-in-out infinite;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        Bonded · Lic. #7901273409
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST METRICS STRIP ============ -->
+<section data-screen-label="Trust metrics" style="border-top: 1px solid #E4E8F3; border-bottom: 1px solid #E4E8F3; background: #FFFFFF;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+      <div><div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">185,000+</div><div style="font-size: 12.5px; color: #5B6480; font-weight: 500;">successful cases</div></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"></circle><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"></path></svg></div>
+      <div><div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">30+ years</div><div style="font-size: 12.5px; color: #5B6480; font-weight: 500;">of experience since 1994</div></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
+      <div><div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">24-hour</div><div style="font-size: 12.5px; color: #5B6480; font-weight: 500;">hotline, always answered</div></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 48px; height: 48px; border-radius: 14px; background: #FFF7DC; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8900A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-13h-7l0-7z"></path></svg></div>
+      <div><div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">Same-day</div><div style="font-size: 12.5px; color: #5B6480; font-weight: 500;">service available</div></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg></div>
+      <div><div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">Certified</div><div style="font-size: 12.5px; color: #5B6480; font-weight: 500;">bonded specialists</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES GRID ============ -->
+<section id="services" data-screen-label="Services grid" style="background: #F6F8FC;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="max-width: 640px;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">What we help with</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0; text-wrap: pretty;">Every document service, one trusted team</h2>
+      <p style="font-size: 16px; line-height: 1.6; color: #5B6480; margin: 16px 0 0;">Notary Public Los Angeles, apostille services, mobile notary, document translation, immigration consulting, Live Scan, and passport services — handled end to end.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(272px, 1fr)); gap: 20px; margin-top: 48px;">
+      <a href="#notarization" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"></circle><path d="M7 11v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5"></path><path d="M5 21h14"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Notary Public</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Acknowledgments and jurats in-office or anywhere in Southern California — same-day available.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#international" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><circle cx="12" cy="15" r="3"></circle></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Apostille &amp; Embassy Authentication</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">State and federal apostilles, plus embassy legalization for non-Hague countries.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#international" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"></path><path d="M4 14l6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="M22 22l-5-10-5 10"></path><path d="M14 18h6"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Document Translation</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">ATA-certified translation — English, Spanish, Russian, Ukrainian, Kazakh, and more.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Russian Visa</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Expedited visa processing in 48–72 hours — visa guaranteed or your money back.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Passport Services</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">First-time and renewal passports as fast as 2–4 business days, photos included.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h5"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Immigration Documentation</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Licensed, bonded immigration consultants preparing compliant paperwork since 1994.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><circle cx="8" cy="11" r="2"></circle><path d="M5 17c.5-1.5 1.7-2 3-2s2.5.5 3 2"></path><path d="M14 9h6M14 12h6M14 15h4"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Green Card Support</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Marriage-based, family-based, and DV-lottery green card preparation done right.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11c0-3 2-5 2-5s2 2 2 5-2 5-2 5-2-2-2-5z"></path><path d="M8 8c-1.5 1.5-2 3.5-2 5.5C6 17 8 20 12 21c4-1 6-4 6-7.5 0-2-.5-4-2-5.5"></path><path d="M12 3v3"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Live Scan</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">DOJ &amp; FBI-approved digital fingerprinting on site in West Hollywood.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#immigration" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M8 11h6M11 8v6"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Document Retrieval</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Vital records, court records, diplomas, and academic records retrieved for you.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+      <a href="#final-cta" style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 14px; color: #1D2540; transition: all 0.2s;" style-hover="transform: translateY(-4px); box-shadow: 0 20px 40px -14px rgba(40,55,120,0.22); border-color: #C9D2E8; color: #1D2540;">
+        <div style="width: 52px; height: 52px; border-radius: 15px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 12.6a5.5 5.5 0 0 0-8.4-7 5.5 5.5 0 0 0-8.4 7L12 21z"></path></svg></div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px;">Same-Day Marriage Services</div>
+        <div style="font-size: 13.5px; line-height: 1.55; color: #5B6480; flex: 1;">Confidential same-day marriage licensing and ceremony coordination in LA.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #283778; display: flex; align-items: center; gap: 6px;">Learn more <span style="font-size: 15px;">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="about" data-screen-label="How it works" style="background: #FFFFFF;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">How it works</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0;">Four steps. Zero guesswork.</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 56px; position: relative;">
+      <div style="background: #F6F8FC; border-radius: 20px; padding: 30px 26px; position: relative;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; background: #283778; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">1</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+        </div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540; margin-top: 20px;">Upload or bring your documents</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5B6480; margin-top: 10px;">Send files securely online, or walk into our West Hollywood office.</div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; padding: 30px 26px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; background: #283778; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">2</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+        </div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540; margin-top: 20px;">Get expert review &amp; quote</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5B6480; margin-top: 10px;">A specialist checks requirements and gives you a clear, upfront price.</div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; padding: 30px 26px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 15px; color: #FFFFFF; background: #283778; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">3</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg>
+        </div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540; margin-top: 20px;">We prepare, notarize &amp; file</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5B6480; margin-top: 10px;">Notarization, translation, authentication, or filing — handled for you.</div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; padding: 30px 26px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 15px; color: #1D2540; background: #FFC805; width: 38px; height: 38px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">4</div>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4AA4EA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-13h-7l0-7z"></path></svg>
+        </div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540; margin-top: 20px;">Receive completed documents</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5B6480; margin-top: 10px;">Pick up, delivery, or mail — as fast as same-day for urgent orders.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ URGENT / SAME-DAY BLOCK ============ -->
+<section data-screen-label="Urgent same-day" style="background: linear-gradient(120deg, #1D2A5E 0%, #283778 55%, #33438D 100%); position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -80px; right: -60px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,200,5,0.16), transparent 65%);"></div>
+  <div style="max-width: 1240px; margin: 0 auto; padding: 80px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px; position: relative;">
+    <div style="flex: 1 1 480px; min-width: 300px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,200,5,0.14); border: 1px solid rgba(255,200,5,0.4); color: #FFC805; border-radius: 999px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-13h-7l0-7z"></path></svg>
+        Urgent service
+      </div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.15; font-weight: 700; color: #FFFFFF; margin: 20px 0 0;">Need it done today?</h2>
+      <p style="font-size: 16px; line-height: 1.65; color: rgba(255,255,255,0.78); margin: 16px 0 0; max-width: 560px;">Same-day and next-day document services are available for urgent notarization, apostille, authentication, mobile notary, and document preparation requests. Same-day apostille orders close at 12 PM PST.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; align-items: center;">
+        <a href="#final-cta" style="background: #FFC805; color: #1D2540; padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px; box-shadow: 0 12px 28px -8px rgba(0,0,0,0.4);" style-hover="background: #FFD84D; color: #1D2540; transform: translateY(-2px);">Request Urgent Service</a>
+        <a href="tel:+13236451600" style="color: #FFFFFF; border: 1.5px solid rgba(255,255,255,0.35); padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px; display: inline-flex; align-items: center; gap: 10px;" style-hover="border-color: #FFFFFF; color: #FFFFFF; background: rgba(255,255,255,0.08);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          +1 323 645 1600
+        </a>
+      </div>
+      <div style="display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 12px 18px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Mobile notary available in Los Angeles, Santa Barbara, Orange, Ventura &amp; San Diego areas
+      </div>
+    </div>
+    <div style="flex: 0 1 340px; min-width: 280px; display: flex; justify-content: center;">
+      <div style="position: relative; width: 300px; height: 280px;">
+        <div style="position: absolute; inset: 30px 20px auto 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); border-radius: 20px; padding: 22px; backdrop-filter: blur(8px);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(255,200,5,0.16); display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
+            <div>
+              <div style="color: #FFFFFF; font-weight: 700; font-size: 14px;">Mobile notary ETA</div>
+              <div style="color: rgba(255,255,255,0.65); font-size: 12px;">As fast as 1 hour in LA</div>
+            </div>
+          </div>
+          <div style="margin-top: 18px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.12); overflow: hidden;">
+            <div style="width: 72%; height: 100%; background: linear-gradient(90deg, #4AA4EA, #FFC805); border-radius: 4px;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 600;">
+            <span>Dispatched</span><span>On the way</span>
+          </div>
+        </div>
+        <div style="position: absolute; bottom: 0; right: 0; background: #FFFFFF; border-radius: 16px; padding: 16px 20px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5); display: flex; align-items: center; gap: 12px; animation: riFloat 5s ease-in-out infinite;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 2px dashed #FFC805; display: flex; align-items: center; justify-content: center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 15l2 2 4-4"></path></svg></div>
+          <div>
+            <div style="font-weight: 700; font-size: 13px; color: #1D2540;">Notarized &amp; sealed</div>
+            <div style="font-size: 11.5px; color: #5B6480;">Today, 3:42 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTARIZATION ACCORDION ============ -->
+<section id="notarization" data-screen-label="Notarization types" style="background: #FFFFFF;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px;">
+    <div style="flex: 1 1 380px; min-width: 300px;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">Notary services</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0; text-wrap: pretty;">Expert document notarization for all important documents</h2>
+      <p style="font-size: 15.5px; line-height: 1.65; color: #5B6480; margin: 18px 0 0;">Our California Notary Public offers both acknowledgments and jurats — in-office in Los Angeles and San Diego, or mobile anywhere in Southern California, including evenings, weekends, and holidays by request.</p>
+      <div style="margin-top: 26px; background: #FFF9E6; border: 1px solid #F5E3A0; border-radius: 16px; padding: 18px 22px; display: flex; gap: 14px; align-items: flex-start;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8900A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v5M12 16.5v.5"></path></svg>
+        <div style="font-size: 13.5px; line-height: 1.6; color: #6B5407;"><strong>Take note:</strong> not all documents need notarization — vital records like birth, marriage, and death certificates don't. Unsure? Call for a quick consultation.</div>
+      </div>
+    </div>
+    <div style="flex: 1 1 480px; min-width: 300px; display: flex; flex-direction: column; gap: 14px;">
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; background: #FFFFFF; overflow: hidden;">
+        <button onClick="{{ notaryT0 }}" style="width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left; font: inherit;">
+          <div style="width: 42px; height: 42px; border-radius: 12px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></div>
+          <div style="flex: 1; font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16.5px; color: #1D2540;">Acknowledgment notarization</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6480" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ notaryO0 }}" hint-placeholder-val="{{ true }}">
+          <div style="padding: 0 24px 22px 82px; font-size: 14px; line-height: 1.65; color: #5B6480;">
+            Verifies your identity and willingness to sign — used for real estate transactions, powers of attorney, deeds, loan agreements, and trust documents. Documents may be signed beforehand; all signers appear with valid ID to confirm their signatures.
+          </div>
+        </sc-if>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; background: #FFFFFF; overflow: hidden;">
+        <button onClick="{{ notaryT1 }}" style="width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left; font: inherit;">
+          <div style="width: 42px; height: 42px; border-radius: 12px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M8 21h8M12 17v4"></path><path d="M7 5h10l-1.5 8a3.5 3.5 0 0 1-7 0z"></path></svg></div>
+          <div style="flex: 1; font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16.5px; color: #1D2540;">Jurat services for sworn statements</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6480" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ notaryO1 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 0 24px 22px 82px; font-size: 14px; line-height: 1.65; color: #5B6480;">
+            You sign in front of the notary and take a spoken oath that the content is true — used for affidavits, depositions, financial declarations, and sworn statements. Pre-signed documents can't be accepted for a jurat.
+          </div>
+        </sc-if>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; background: #FFFFFF; overflow: hidden;">
+        <button onClick="{{ notaryT2 }}" style="width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left; font: inherit;">
+          <div style="width: 42px; height: 42px; border-radius: 12px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"></rect><path d="M8 21h8M12 18v3"></path><path d="M9 11l2 2 4-4"></path></svg></div>
+          <div style="flex: 1; font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16.5px; color: #1D2540;">Remote online notarization (RON)</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6480" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ notaryO2 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 0 24px 22px 82px; font-size: 14px; line-height: 1.65; color: #5B6480;">
+            California notaries can't perform RON, but California recognizes out-of-state RON done under that state's law. We arrange compliant remote notarization via Zoom — from $35/signature (U.S.) or $100/signature (overseas). Confirm acceptance with your receiving agency first.
+          </div>
+        </sc-if>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; background: #FFFFFF; overflow: hidden;">
+        <button onClick="{{ notaryT3 }}" style="width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: none; border: none; cursor: pointer; text-align: left; font: inherit;">
+          <div style="width: 42px; height: 42px; border-radius: 12px; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <div style="flex: 1; font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16.5px; color: #1D2540;">Mobile &amp; in-office notary</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B6480" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <sc-if value="{{ notaryO3 }}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 0 24px 22px 82px; font-size: 14px; line-height: 1.65; color: #5B6480;">
+            We notarize at homes, offices, hospitals, jails, and places of business across Los Angeles, Santa Barbara, Orange, Ventura, and San Diego counties — same-day, before and after business hours, weekends and holidays by request.
+          </div>
+        </sc-if>
+      </div>
+      <div style="font-size: 12px; color: #8A91A8; line-height: 1.55; padding: 4px 6px 0;">A Notary Public who is not an attorney cannot provide legal advice or choose a notarial act for you — you or the document issuer decide which form is required.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERNATIONAL ============ -->
+<section id="international" data-screen-label="International services" style="background: #F6F8FC;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between;">
+      <div style="max-width: 620px;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">International documents</div>
+        <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0; text-wrap: pretty;">Documents accepted anywhere in the world</h2>
+        <p style="font-size: 15.5px; line-height: 1.65; color: #5B6480; margin: 16px 0 0;">Fast apostille and embassy authentication in all 50 states and at the federal level — with strong working relationships with the Secretary of State, FBI, and embassies to expedite every request.</p>
+      </div>
+      <a href="#final-cta" style="background: #283778; color: #FFFFFF; padding: 15px 28px; border-radius: 14px; font-weight: 700; font-size: 15px; flex-shrink: 0; box-shadow: 0 10px 20px -8px rgba(40,55,120,0.45);" style-hover="background: #33438D; color: #FFFFFF; transform: translateY(-2px);">Start Apostille Request</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 48px;">
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><circle cx="12" cy="15" r="3"></circle></svg></div>
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540;">Apostille — Hague countries</div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.65; color: #5B6480; margin: 16px 0 0;">State and federal apostilles for vital records, court records, academic records, FBI background checks, and business documents used in Hague Convention countries.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px;">
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">Ukraine</span>
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">Russia</span>
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">Kazakhstan</span>
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">Israel</span>
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">Uzbekistan</span>
+          <span style="background: #F2F5FB; color: #283778; border-radius: 999px; padding: 5px 12px; font-size: 11.5px; font-weight: 600;">+ more</span>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01"></path></svg></div>
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540;">Embassy legalization</div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.65; color: #5B6480; margin: 16px 0 0;">For non-Hague destinations we manage the full authentication chain — commissioning agency, state officials, U.S. Department of State, and the destination country's consulate.</p>
+        <div style="margin-top: 18px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: #2E7D46;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+          Error-free submissions, country-specific handling
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div style="width: 48px; height: 48px; border-radius: 14px; background: #F2F5FB; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6"></path><path d="M4 14l6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="M22 22l-5-10-5 10"></path><path d="M14 18h6"></path></svg></div>
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #1D2540;">Certified translation</div>
+        </div>
+        <p style="font-size: 14px; line-height: 1.65; color: #5B6480; margin: 16px 0 0;">ATA-certified translators for legal, academic, medical, and personal documents — any source language to any target language, with a signed certificate of accuracy.</p>
+        <div style="margin-top: 18px; display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 600; color: #283778;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          Guaranteed international acceptance
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 24px; background: linear-gradient(120deg, #283778, #33438D); border-radius: 20px; padding: 26px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        <div style="color: #FFFFFF; font-size: 14.5px; line-height: 1.55; font-weight: 500; max-width: 720px;"><strong>Apostille receipt guarantee:</strong> if a submission is late through our fault, we resubmit free and refund 50% of what you paid.</div>
+      </div>
+      <a href="#final-cta" style="color: #FFC805; font-weight: 700; font-size: 14px; white-space: nowrap;" style-hover="color: #FFD84D;">Get started →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMMIGRATION / IDENTITY / TRAVEL ============ -->
+<section id="immigration" data-screen-label="Immigration and identity" style="background: #FFFFFF;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px;">
+    <div style="flex: 1 1 380px; min-width: 300px;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">Immigration · Identity · Travel</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0; text-wrap: pretty;">Specialized immigration &amp; identity documentation</h2>
+      <p style="font-size: 15.5px; line-height: 1.65; color: #5B6480; margin: 18px 0 0;">Licensed and bonded immigration consultants in West Hollywood and San Diego, serving all nationals — including complex cases, from start to finish.</p>
+      <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #EDF1F9;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 26px; color: #4AA4EA; min-width: 88px;">48–72h</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #5B6480;">Expedited visa processing — guaranteed, or your money back.</div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #EDF1F9;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 26px; color: #4AA4EA; min-width: 88px;">2–4d</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #5B6480;">Fast-track passport service — no queues, delivered to you.</div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 18px 0;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 26px; color: #4AA4EA; min-width: 88px;">100%</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #5B6480;">Compliant green card paperwork, prepared by specialists.</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex: 1 1 520px; min-width: 300px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; align-content: start;">
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Visa</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">3-year multi-entry and 6-month stay visas — tourist, business, humanitarian, private.</div>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3z"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Passport</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">Renewals and first-time passports with full application assistance.</div>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><circle cx="8" cy="11" r="2"></circle><path d="M5 17c.5-1.5 1.7-2 3-2s2.5.5 3 2"></path><path d="M14 9h6M14 12h6M14 15h4"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Green Card</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">Marriage-based, family-based, and DV-lottery applications.</div>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11c0-3 2-5 2-5s2 2 2 5-2 5-2 5-2-2-2-5z"></path><path d="M8 8c-1.5 1.5-2 3.5-2 5.5C6 17 8 20 12 21c4-1 6-4 6-7.5 0-2-.5-4-2-5.5"></path><path d="M12 3v3"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Live Scan</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">DOJ/FBI fingerprinting for employment, licensing, and immigration.</div>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path><path d="M8 11h6M11 8v6"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Vital Records</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">Birth, death, marriage, divorce, and adoption records retrieved fast.</div>
+      </div>
+      <div style="border: 1px solid #E4E8F3; border-radius: 18px; padding: 24px; background: #FFFFFF;" style-hover="border-color: #C9D2E8; box-shadow: 0 14px 28px -12px rgba(40,55,120,0.18);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2"></path><path d="M15 8h4M15 12h4"></path></svg>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 16px; color: #1D2540; margin-top: 14px;">Identity Verification</div>
+        <div style="font-size: 13px; line-height: 1.55; color: #5B6480; margin-top: 6px;">Confidential verification for legal, professional, and personal use.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFICES ============ -->
+<section id="offices" data-screen-label="Offices" style="background: #F6F8FC;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">Our offices</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0;">Two locations in Southern California</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 48px; max-width: 980px; margin-left: auto; margin-right: auto;">
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 150px; background: linear-gradient(135deg, #283778, #33438D); position: relative; display: flex; align-items: center; justify-content: center;">
+          <div style="position: absolute; inset: 0; opacity: 0.25; background-image: radial-gradient(circle at 30% 40%, rgba(74,164,234,0.7), transparent 45%), radial-gradient(circle at 75% 65%, rgba(255,200,5,0.35), transparent 40%);"></div>
+          <div style="position: relative; width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFC805" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div style="position: absolute; top: 16px; left: 20px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; border-radius: 999px; padding: 5px 14px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;">WALK-INS WELCOME</div>
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 14px; flex: 1;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 21px; color: #1D2540;">West Hollywood</div>
+          <div style="font-size: 14px; color: #5B6480; line-height: 1.6;">7869 Santa Monica Blvd, CA 90046<br>Near Fairfax Ave &amp; Sunset Blvd</div>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1D2540; font-weight: 500;">
+            <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="color: #5B6480;">Mon–Fri</span><span>9:00 AM – 5:00 PM</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="color: #5B6480;">Saturday</span><span>By appointment</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="color: #5B6480;">Sunday</span><span>Closed</span></div>
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: auto; padding-top: 10px;">
+            <a href="https://maps.google.com/?q=7869+Santa+Monica+Blvd,+CA+90046" target="_blank" rel="noopener" style="flex: 1; text-align: center; background: #283778; color: #FFFFFF; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 13.5px;" style-hover="background: #33438D; color: #FFFFFF;">Directions</a>
+            <a href="tel:+13236451600" style="flex: 1; text-align: center; border: 1.5px solid #C9D2E8; color: #283778; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 13.5px;" style-hover="border-color: #283778;">Call office</a>
+          </div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;">
+        <div style="height: 150px; background: linear-gradient(135deg, #33438D, #4AA4EA); position: relative; display: flex; align-items: center; justify-content: center;">
+          <div style="position: absolute; inset: 0; opacity: 0.25; background-image: radial-gradient(circle at 70% 35%, rgba(255,255,255,0.5), transparent 45%), radial-gradient(circle at 25% 70%, rgba(40,55,120,0.6), transparent 40%);"></div>
+          <div style="position: relative; width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div style="position: absolute; top: 16px; left: 20px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; border-radius: 999px; padding: 5px 14px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;">BY APPOINTMENT</div>
+        </div>
+        <div style="padding: 28px; display: flex; flex-direction: column; gap: 14px; flex: 1;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 21px; color: #1D2540;">San Diego</div>
+          <div style="font-size: 14px; color: #5B6480; line-height: 1.6;">11852 Zach Dr, San Diego, CA 92128<br>Off Rancho Bernardo Rd &amp; I-15</div>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; color: #1D2540; font-weight: 500;">
+            <div style="display: flex; justify-content: space-between; gap: 12px;"><span style="color: #5B6480;">All week</span><span>By appointment only</span></div>
+            <div style="font-size: 12.5px; color: #8A91A8;">Please call ahead to schedule your visit.</div>
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: auto; padding-top: 10px;">
+            <a href="https://maps.google.com/?q=11852+Zach+Dr,+San+Diego,+CA+92128" target="_blank" rel="noopener" style="flex: 1; text-align: center; background: #283778; color: #FFFFFF; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 13.5px;" style-hover="background: #33438D; color: #FFFFFF;">Directions</a>
+            <a href="tel:+13236451600" style="flex: 1; text-align: center; border: 1.5px solid #C9D2E8; color: #283778; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 13.5px;" style-hover="border-color: #283778;">Call office</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEAM ============ -->
+<section data-screen-label="Team" style="background: #FFFFFF;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+      <div style="max-width: 560px;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">Our team</div>
+        <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0;">People who handle your case personally</h2>
+      </div>
+      <a href="https://rushindocumentation.com/about/#ourteam" target="_blank" rel="noopener" style="border: 1.5px solid #C9D2E8; color: #283778; padding: 13px 26px; border-radius: 12px; font-weight: 700; font-size: 14px; flex-shrink: 0;" style-hover="border-color: #283778;">View all team</a>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 20px; margin-top: 44px;">
+      <div style="background: #F6F8FC; border-radius: 20px; overflow: hidden;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 36px -14px rgba(40,55,120,0.22);">
+        <div style="aspect-ratio: 1 / 1.05; background: linear-gradient(150deg, #1D2A5E, #283778); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Ubuntu', sans-serif; font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.85);">V</span></div>
+        <div style="padding: 18px 20px 22px;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 17px; color: #1D2540;">Vadim</div>
+          <div style="font-size: 12.5px; color: #5B6480; margin-top: 4px; line-height: 1.45;">Executive Director &amp; Immigration Consultant</div>
+        </div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; overflow: hidden;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 36px -14px rgba(40,55,120,0.22);">
+        <div style="aspect-ratio: 1 / 1.05; background: linear-gradient(150deg, #283778, #33438D); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Ubuntu', sans-serif; font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.85);">K</span></div>
+        <div style="padding: 18px 20px 22px;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 17px; color: #1D2540;">Karina</div>
+          <div style="font-size: 12.5px; color: #5B6480; margin-top: 4px; line-height: 1.45;">Director of Production</div>
+        </div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; overflow: hidden;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 36px -14px rgba(40,55,120,0.22);">
+        <div style="aspect-ratio: 1 / 1.05; background: linear-gradient(150deg, #283778, #4AA4EA); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Ubuntu', sans-serif; font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.85);">A</span></div>
+        <div style="padding: 18px 20px 22px;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 17px; color: #1D2540;">Anna</div>
+          <div style="font-size: 12.5px; color: #5B6480; margin-top: 4px; line-height: 1.45;">Customer Service Representative</div>
+        </div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; overflow: hidden;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 36px -14px rgba(40,55,120,0.22);">
+        <div style="aspect-ratio: 1 / 1.05; background: linear-gradient(150deg, #33438D, #283778); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Ubuntu', sans-serif; font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.85);">N</span></div>
+        <div style="padding: 18px 20px 22px;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 17px; color: #1D2540;">Nona</div>
+          <div style="font-size: 12.5px; color: #5B6480; margin-top: 4px; line-height: 1.45;">Customer Success Manager</div>
+        </div>
+      </div>
+      <div style="background: #F6F8FC; border-radius: 20px; overflow: hidden;" style-hover="transform: translateY(-4px); box-shadow: 0 18px 36px -14px rgba(40,55,120,0.22);">
+        <div style="aspect-ratio: 1 / 1.05; background: linear-gradient(150deg, #33438D, #4AA4EA); display: flex; align-items: center; justify-content: center;"><span style="font-family: 'Ubuntu', sans-serif; font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.85);">D</span></div>
+        <div style="padding: 18px 20px 22px;">
+          <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 17px; color: #1D2540;">Diana</div>
+          <div style="font-size: 12.5px; color: #5B6480; margin-top: 4px; line-height: 1.45;">Customer Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section data-screen-label="Reviews" style="background: #F6F8FC;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px;">
+    <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">Reviews</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0;">Trusted by 185,000+ clients</h2>
+      <div style="display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 999px; padding: 10px 20px;">
+        <span style="color: #FFC805; font-size: 16px; letter-spacing: 2px;">★★★★★</span>
+        <span style="font-size: 13px; font-weight: 700; color: #1D2540;">5.0 · Google Reviews</span>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 48px;">
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 16px;">
+        <span style="color: #FFC805; font-size: 15px; letter-spacing: 2px;">★★★★★</span>
+        <p style="font-size: 14.5px; line-height: 1.7; color: #1D2540; margin: 0; flex: 1;">"Karina helped me apply for my green card — her customer service was amazing from the first phone call through the whole process. Without her knowledge of all the details, I wouldn't have been able to do it myself."</p>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #283778; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; font-family: 'Ubuntu', sans-serif;">A</div>
+          <div>
+            <div style="font-weight: 700; font-size: 13.5px; color: #1D2540;">Andrey Pak</div>
+            <div style="font-size: 12px; color: #8A91A8;">Green Card application</div>
+          </div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 16px;">
+        <span style="color: #FFC805; font-size: 15px; letter-spacing: 2px;">★★★★★</span>
+        <p style="font-size: 14.5px; line-height: 1.7; color: #1D2540; margin: 0; flex: 1;">"Wonderful staff and a pleasure to work with. They are efficient, always aware of the status, and will guide you throughout the process so there is never confusion in what to do next."</p>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #33438D; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; font-family: 'Ubuntu', sans-serif;">G</div>
+          <div>
+            <div style="font-weight: 700; font-size: 13.5px; color: #1D2540;">Gary V</div>
+            <div style="font-size: 12px; color: #8A91A8;">Document services</div>
+          </div>
+        </div>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 16px;">
+        <span style="color: #FFC805; font-size: 15px; letter-spacing: 2px;">★★★★★</span>
+        <p style="font-size: 14.5px; line-height: 1.7; color: #1D2540; margin: 0; flex: 1;">"I found Rush In while looking for a place to get a power of attorney. The girl over the phone answered all my questions. Got my POA on time and super happy with the service I was provided."</p>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #4AA4EA; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; font-family: 'Ubuntu', sans-serif;">K</div>
+          <div>
+            <div style="font-weight: 700; font-size: 13.5px; color: #1D2540;">Kristina Pozdnyakova</div>
+            <div style="font-size: 12px; color: #8A91A8;">Power of attorney</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; justify-content: center;">
+      <div style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 14px; padding: 12px 20px; font-size: 13px; font-weight: 600; color: #1D2540;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Video testimonials: Ekaterina, Nicholas, Kristina
+      </div>
+      <a href="https://www.youtube.com/channel/UCTXcTF4jHj41ZlBYIsfR1jQ" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 8px; border-radius: 14px; padding: 12px 20px; font-size: 13px; font-weight: 700; color: #283778; border: 1.5px solid #C9D2E8;" style-hover="border-color: #283778;">Watch on YouTube →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section data-screen-label="FAQ" style="background: #FFFFFF;">
+  <div style="max-width: 880px; margin: 0 auto; padding: 96px 24px;">
+    <div style="text-align: center;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #4AA4EA; text-transform: uppercase;">FAQ</div>
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.2; font-weight: 700; color: #1D2540; margin: 12px 0 0;">Frequently asked questions about notary services</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 48px;">
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="8">
+        <div style="border: 1px solid #E4E8F3; border-radius: 16px; background: #FFFFFF; overflow: hidden; min-height: 60px;">
+          <button onClick="{{ faq.toggle }}" style="width: 100%; display: flex; align-items: center; gap: 16px; padding: 19px 24px; background: none; border: none; cursor: pointer; text-align: left; font: inherit;">
+            <div style="flex: 1; font-weight: 700; font-size: 15.5px; color: #1D2540; font-family: 'Ubuntu', sans-serif;">{{ faq.q }}</div>
+            <div style="width: 28px; height: 28px; border-radius: 50%; background: #F2F5FB; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #283778; font-weight: 700; font-size: 16px;">{{ faq.mark }}</div>
+          </button>
+          <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding: 0 60px 22px 24px; font-size: 14px; line-height: 1.7; color: #5B6480;">{{ faq.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section id="final-cta" data-screen-label="Final CTA" style="background: linear-gradient(135deg, #F6F8FC 0%, #EAF2FC 60%, #FFF6DC 130%);">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center;">
+    <div style="flex: 1 1 460px; min-width: 300px;">
+      <h2 style="font-family: 'Ubuntu', sans-serif; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.18; font-weight: 700; color: #1D2540; margin: 0; text-wrap: pretty;">Need notary, apostille, translation, or immigration document help?</h2>
+      <p style="font-size: 16.5px; line-height: 1.65; color: #5B6480; margin: 18px 0 0; max-width: 560px;">Send your documents today and our certified team will guide you through the fastest, safest next step.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px;">
+        <a href="tel:+13236451600" style="background: #283778; color: #FFFFFF; padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px; box-shadow: 0 12px 24px -8px rgba(40,55,120,0.45);" style-hover="background: #33438D; color: #FFFFFF; transform: translateY(-2px);">Book a Consultation</a>
+        <a href="tel:+13236451600" style="background: #FFFFFF; color: #283778; border: 1.5px solid #C9D2E8; padding: 16px 30px; border-radius: 14px; font-weight: 700; font-size: 16px;" style-hover="border-color: #283778; transform: translateY(-2px);">Call +1 323 645 1600</a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; align-items: center;">
+        <span style="font-size: 13px; font-weight: 600; color: #5B6480;">We're in messengers:</span>
+        <a href="https://t.me/rushindocumentationl" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 7px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 999px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; color: #283778;" style-hover="border-color: #283778;">Telegram</a>
+        <a href="https://wa.me/13108671186" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 7px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 999px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; color: #283778;" style-hover="border-color: #283778;">WhatsApp</a>
+        <a href="viber://chat?number=13108671186" style="display: flex; align-items: center; gap: 7px; background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 999px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; color: #283778;" style-hover="border-color: #283778;">Viber</a>
+      </div>
+    </div>
+    <div id="contacts" style="flex: 1 1 400px; min-width: 300px; max-width: 480px;">
+      <div style="background: #FFFFFF; border: 1px solid #E4E8F3; border-radius: 24px; padding: 36px; box-shadow: 0 32px 64px -20px rgba(40,55,120,0.25);">
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #1D2540;">Upload your documents</div>
+        <div style="font-size: 13px; color: #5B6480; margin-top: 6px;">We'll review and reply with a quote — usually within the hour.</div>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 24px;">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; font-weight: 700; color: #1D2540;">
+            Full name
+            <input type="text" placeholder="Your full name" style="border: 1.5px solid #E4E8F3; border-radius: 12px; padding: 13px 16px; font-family: 'Montserrat', sans-serif; font-size: 14px; color: #1D2540; outline: none;" style-focus="border-color: #283778;">
+          </label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; font-weight: 700; color: #1D2540;">
+              Email
+              <input type="email" placeholder="you@email.com" style="border: 1.5px solid #E4E8F3; border-radius: 12px; padding: 13px 16px; font-family: 'Montserrat', sans-serif; font-size: 14px; color: #1D2540; outline: none; min-width: 0;" style-focus="border-color: #283778;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12.5px; font-weight: 700; color: #1D2540;">
+              Phone
+              <input type="tel" placeholder="+1 (___) ___-____" style="border: 1.5px solid #E4E8F3; border-radius: 12px; padding: 13px 16px; font-family: 'Montserrat', sans-serif; font-size: 14px; color: #1D2540; outline: none; min-width: 0;" style-focus="border-color: #283778;">
+            </label>
+          </div>
+          <div style="border: 2px dashed #C9D2E8; border-radius: 14px; padding: 26px; text-align: center; background: #FAFBFE; cursor: pointer;" style-hover="border-color: #283778; background: #F2F5FB;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#283778" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto; display: block;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+            <div style="font-size: 13.5px; font-weight: 700; color: #283778; margin-top: 10px;">Drop files here or click to select</div>
+            <div style="font-size: 11.5px; color: #8A91A8; margin-top: 4px;">PDF, JPG, PNG, DOCX, ZIP · up to 20 MB</div>
+          </div>
+          <button style="background: #283778; color: #FFFFFF; border: none; padding: 16px; border-radius: 13px; font-weight: 700; font-size: 15px; font-family: 'Montserrat', sans-serif; cursor: pointer; box-shadow: 0 10px 20px -8px rgba(40,55,120,0.45);" style-hover="background: #33438D;">Send documents</button>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 11.5px; color: #8A91A8;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Confidential — your files are handled securely
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="news" data-screen-label="Footer" style="background: #1B2450; color: #B9C1DE;">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 0;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 44px;">
+      <div style="grid-column: span 1;">
+        <div style="display: flex; align-items: center; gap: 11px;">
+          <div style="width: 40px; height: 40px; border-radius: 11px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; position: relative;">
+            <span style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 20px; color: #283778;">R</span>
+            <span style="position: absolute; right: -3px; bottom: -3px; width: 13px; height: 13px; border-radius: 50%; background: #FFC805; border: 2px solid #1B2450;"></span>
+          </div>
+          <div style="display: flex; flex-direction: column; line-height: 1;">
+            <span style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 18px; color: #FFFFFF; letter-spacing: -0.01em;">Rush In</span>
+            <span style="font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: #8A93BC; text-transform: uppercase; margin-top: 3px;">Documentation Center</span>
+          </div>
+        </div>
+        <p style="font-size: 13px; line-height: 1.7; margin: 18px 0 0; max-width: 280px;">California-born company since 1994. Notary Public, apostille, certified translation, Live Scan, passport &amp; visa services, and immigration documentation in Southern California.</p>
+        <div style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+          <a href="https://www.facebook.com/rushindocumentation" target="_blank" rel="noopener" aria-label="Facebook" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 12px; font-weight: 700;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;">f</a>
+          <a href="https://www.instagram.com/rushindocumentation/" target="_blank" rel="noopener" aria-label="Instagram" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5h.01"></path></svg></a>
+          <a href="https://vk.com/rushindoc" target="_blank" rel="noopener" aria-label="VK" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 12px; font-weight: 700;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;">VK</a>
+          <a href="https://t.me/rushindocumentationl" target="_blank" rel="noopener" aria-label="Telegram" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4z"></path></svg></a>
+          <a href="https://www.youtube.com/channel/UCTXcTF4jHj41ZlBYIsfR1jQ" target="_blank" rel="noopener" aria-label="YouTube" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></a>
+          <a href="https://www.linkedin.com/in/vadim-pechersky-0a89a21a4" target="_blank" rel="noopener" aria-label="LinkedIn" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 12px; font-weight: 700;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;">in</a>
+          <a href="https://soundcloud.com/rushindocumentation" target="_blank" rel="noopener" aria-label="Podcast" style="width: 38px; height: 38px; border-radius: 11px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #FFFFFF;" style-hover="background: rgba(255,255,255,0.18); color: #FFFFFF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="3"></circle><path d="M12 14v7"></path><path d="M8 21h8"></path><path d="M17.7 8a6 6 0 1 0-11.4 0"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 14px; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase;">Menu</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 18px; font-size: 13.5px;">
+          <a href="#top" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Home</a>
+          <a href="#about" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">About</a>
+          <a href="#services" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Services</a>
+          <a href="https://rushindocumentation.com/news/" target="_blank" rel="noopener" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">News</a>
+          <a href="#contacts" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Contacts</a>
+          <a href="#offices" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Our Offices</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 14px; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase;">Services</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 18px; font-size: 13.5px;">
+          <a href="#services" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Notary Public Los Angeles</a>
+          <a href="#international" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Apostille Services</a>
+          <a href="#notarization" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Mobile Notary</a>
+          <a href="#international" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Document Translation</a>
+          <a href="#immigration" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Russian Visa</a>
+          <a href="#immigration" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Green Card</a>
+          <a href="#immigration" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Live Scan</a>
+          <a href="#services" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Same-Day Marriage Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: 'Ubuntu', sans-serif; font-weight: 700; font-size: 14px; color: #FFFFFF; letter-spacing: 0.06em; text-transform: uppercase;">Contact</div>
+        <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 18px; font-size: 13.5px; line-height: 1.6;">
+          <a href="tel:+13236451600" style="color: #FFC805; font-weight: 700; font-size: 15px;" style-hover="color: #FFD84D;">+1 323 645 1600</a>
+          <div><strong style="color: #FFFFFF;">West Hollywood</strong><br>7869 Santa Monica Blvd, CA 90046</div>
+          <div><strong style="color: #FFFFFF;">San Diego</strong><br>11852 Zach Dr, CA 92128<br><span style="font-size: 12px; color: #8A93BC;">By appointment only</span></div>
+        </div>
+        <div style="margin-top: 22px;">
+          <div style="font-size: 12.5px; font-weight: 700; color: #FFFFFF; margin-bottom: 10px;">Newsletter</div>
+          <div style="display: flex; gap: 8px;">
+            <input type="email" placeholder="Your email" style="flex: 1; min-width: 0; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); border-radius: 11px; padding: 12px 14px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: #FFFFFF; outline: none;" style-focus="border-color: #4AA4EA;">
+            <button style="background: #FFC805; color: #1D2540; border: none; border-radius: 11px; padding: 12px 18px; font-weight: 700; font-size: 13px; font-family: 'Montserrat', sans-serif; cursor: pointer;" style-hover="background: #FFD84D;">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 52px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 11.5px; line-height: 1.7; color: #8A93BC;">
+      <strong style="color: #B9C1DE;">Disclaimer:</strong> Rush in Professional Services Inc. DBA Rush in Documentation Center is NOT a Law Firm. We do NOT provide legal advice. We are a team of bonded immigration consultants (State of California, Secretary of State, Surety Bond Immigration Consultant 10126056, Business and Professions Code section 22443.1), Court Certified Translators, Notary Publics, Passport, and Visa Specialists. RushIn Documentation does NOT represent the interests of any consulate and is NOT an intermediary.
+    </div>
+    <div style="padding: 20px 0 28px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; font-size: 12px;">
+      <div>Copyright © 2026. All Rights Reserved</div>
+      <div style="display: flex; gap: 20px;">
+        <a href="https://rushindocumentation.com/styleguide/" target="_blank" rel="noopener" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Styleguide</a>
+        <a href="https://rushindocumentation.com/privacy-policy/" target="_blank" rel="noopener" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Privacy Policy</a>
+        <a href="https://www.syntecho.com/" target="_blank" rel="noopener" style="color: #B9C1DE;" style-hover="color: #FFFFFF;">Powered by Syntecho</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY MOBILE CTA BAR ============ -->
+<sc-if value="{{ showMobileCta }}" hint-placeholder-val="{{ false }}">
+  <div data-mq-mobile-bar="" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 95; display: none; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-top: 1px solid #E4E8F3; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); gap: 10px;">
+    <a href="tel:+13236451600" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1.5px solid #C9D2E8; color: #283778; border-radius: 12px; padding: 13px 8px; font-weight: 700; font-size: 13px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Call
+    </a>
+    <a href="#final-cta" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px; border: 1.5px solid #C9D2E8; color: #283778; border-radius: 12px; padding: 13px 8px; font-weight: 700; font-size: 13px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M17 8l-5-5-5 5"></path><path d="M12 3v12"></path></svg>
+      Upload
+    </a>
+    <a href="#final-cta" style="flex: 1.2; display: flex; align-items: center; justify-content: center; background: #283778; color: #FFFFFF; border-radius: 12px; padding: 13px 8px; font-weight: 700; font-size: 13px;">Book</a>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;ctaLabel&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;Get a Quote&quot;, &quot;Book Consultation&quot;], &quot;default&quot;: &quot;Get a Quote&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Conversion&quot; },
+  &quot;showMobileCta&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Conversion&quot; }
+}">
+class Component extends DCLogic {
+  state = {
+    mobileOpen: false,
+    servicesOpen: false,
+    lang: 'en',
+    notary: [true, false, false, false],
+    faqOpen: 0
+  };
+
+  toggleNotary(i) {
+    this.setState(s => {
+      const n = s.notary.slice();
+      n[i] = !n[i];
+      return { notary: n };
+    });
+  }
+
+  renderVals() {
+    const langBase = 'padding: 7px 12px; border: none; cursor: pointer; font: inherit; font-weight: 700; font-size: 12px;';
+    const faqsData = [
+      { q: 'Can a notary refuse to notarize a document?', a: 'Yes. A notary may decline if the document appears fraudulent, the signer seems coerced or doesn\u2019t understand what they\u2019re signing, valid ID can\u2019t be provided, the signer can\u2019t appear in person, or the document has incomplete details or missing signature lines.' },
+      { q: 'Do both parties need to be present for a notarized document?', a: 'In most cases only the signers need to be present. Parties in separate locations can have their signatures notarized individually. A pre-signed document can be notarized as an acknowledgment as long as the signers are present to verify their signatures.' },
+      { q: 'Can I get something notarized without an ID?', a: 'California allows \u201Ccredible witnesses\u201D who can vouch for your identity: one witness if they know both you and the notary, or two witnesses who don\u2019t personally know the notary. Each credible witness must present valid identification.' },
+      { q: 'How much does a mobile notary cost?', a: 'Our base notary fee is $25 plus a $10 service provider fee. Mobile notary pricing depends on travel distance, location, number of signatures, and schedule \u2014 call us and we\u2019ll give you a free quote.' },
+      { q: 'What documents need to be notarized?', a: 'Common examples: real estate deeds, mortgages, powers of attorney, adoption papers, wills, trusts, medical directives, and financial documents. Affidavits and depositions require a jurat. Vital records and personal letters do not need notarization \u2014 when unsure, check with the issuing agency.' },
+      { q: 'Can a notary notarize a document that\u2019s already been signed?', a: 'Yes \u2014 for acknowledgments. The signers must still appear so the notary can confirm their identities and they can confirm the signatures are theirs. For a jurat, signing must happen in front of the Notary Public.' },
+      { q: 'How long does a notarized document remain valid?', a: 'A notarization generally doesn\u2019t expire. Exceptions: the document itself states an expiration date, specific laws require renewal, or the receiving institution requires an updated notarization \u2014 common for powers of attorney and medical directives. Always confirm with the receiving party.' },
+      { q: 'Can a California notary perform online notarization?', a: 'No \u2014 California notaries must be physically present with the signer. However, California recognizes out-of-state remote online notarizations performed under that state\u2019s law, and we can arrange compliant RON or send a mobile notary to your location instead.' }
+    ];
+    const faqs = faqsData.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: this.state.faqOpen === i,
+      mark: this.state.faqOpen === i ? '\u2212' : '+',
+      toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i }))
+    }));
+    return {
+      ctaLabel: this.props.ctaLabel ?? 'Get a Quote',
+      showMobileCta: this.props.showMobileCta ?? true,
+      mobileOpen: this.state.mobileOpen,
+      toggleMobile: () => this.setState(s => ({ mobileOpen: !s.mobileOpen })),
+      closeMobile: () => this.setState({ mobileOpen: false }),
+      servicesOpen: this.state.servicesOpen,
+      openServices: () => this.setState({ servicesOpen: true }),
+      closeServices: () => this.setState({ servicesOpen: false }),
+      toggleServices: () => this.setState(s => ({ servicesOpen: !s.servicesOpen })),
+      setLangEn: () => this.setState({ lang: 'en' }),
+      setLangRu: () => this.setState({ lang: 'ru' }),
+      langEnStyle: langBase + (this.state.lang === 'en' ? 'background: #283778; color: #FFFFFF;' : 'background: #FFFFFF; color: #5B6480;'),
+      langRuStyle: langBase + (this.state.lang === 'ru' ? 'background: #283778; color: #FFFFFF;' : 'background: #FFFFFF; color: #5B6480;'),
+      notaryO0: this.state.notary[0],
+      notaryO1: this.state.notary[1],
+      notaryO2: this.state.notary[2],
+      notaryO3: this.state.notary[3],
+      notaryT0: () => this.toggleNotary(0),
+      notaryT1: () => this.toggleNotary(1),
+      notaryT2: () => this.toggleNotary(2),
+      notaryT3: () => this.toggleNotary(3),
+      faqs
+    };
+  }
+}
+</script>
+</body>
+</html>
