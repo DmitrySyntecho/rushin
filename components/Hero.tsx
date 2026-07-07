@@ -2,11 +2,12 @@ import React from 'react';
 import { Svg, IC } from './icons';
 
 const CTA_LABEL = 'Get a Quote';
+const LIGHT_BLUE = '#8FBEF0';
 
 function TrustItem({ inner, children }: { inner: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, fontWeight: 600, color: '#1D2540' }}>
-      <Svg inner={inner} size={17} stroke="#4AA4EA" sw={2} />
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, fontWeight: 600, color: '#FFFFFF' }}>
+      <Svg inner={inner} size={17} stroke={LIGHT_BLUE} sw={2} />
       {children}
     </div>
   );
@@ -14,42 +15,59 @@ function TrustItem({ inner, children }: { inner: string; children: React.ReactNo
 
 export default function Hero() {
   return (
-    <section id="top" style={{ background: 'linear-gradient(180deg, #F6F8FC 0%, #FFFFFF 100%)', overflow: 'hidden' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '72px 24px 88px', display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'center' }}>
-        <div style={{ flex: '1 1 480px', minWidth: 320 }}>
+    <section id="top" style={{ position: 'relative', overflow: 'hidden', background: '#151C40' }}>
+      {/* Full-bleed office background */}
+      <img
+        src="/images/hero-bg.webp"
+        alt="Rush In documentation office in Southern California"
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+      {/* Dark-blue gradient overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background:
+            'linear-gradient(105deg, rgba(18,25,58,0.97) 0%, rgba(22,31,72,0.93) 40%, rgba(29,42,94,0.7) 66%, rgba(29,42,94,0.4) 100%)',
+        }}
+      />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(18,25,58,0.2) 0%, rgba(18,25,58,0) 30%, rgba(18,25,58,0.45) 100%)' }} />
+
+      <div style={{ position: 'relative', maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0', display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-end' }}>
+        <div style={{ flex: '1 1 520px', minWidth: 320, paddingBottom: 88 }}>
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              background: '#FFFFFF',
-              border: '1px solid #E4E8F3',
+              background: 'rgba(255,255,255,0.1)',
+              border: '1px solid rgba(255,255,255,0.22)',
               borderRadius: 999,
               padding: '8px 16px',
               fontSize: 13,
               fontWeight: 600,
-              color: '#283778',
-              boxShadow: '0 4px 12px -4px rgba(40,55,120,0.12)',
+              color: '#FFFFFF',
+              backdropFilter: 'blur(6px)',
             }}
           >
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#FFC805', display: 'inline-block' }} />
             Southern California · Since 1994
           </div>
-          <h1 className="font-ub" style={{ fontSize: 'clamp(34px, 4.4vw, 58px)', lineHeight: 1.15, fontWeight: 700, color: '#1D2540', margin: '24px 0 0', letterSpacing: '-0.01em' }}>
-            Professional Notary, Apostille &amp; Document Services — <span style={{ color: '#283778' }}>Fast, Secure, Done Right</span>
+          <h1 className="font-ub" style={{ fontSize: 'clamp(34px, 4.4vw, 58px)', lineHeight: 1.15, fontWeight: 700, color: '#FFFFFF', margin: '24px 0 0', letterSpacing: '-0.01em' }}>
+            Professional Notary, Apostille &amp; Document Services — <span style={{ color: '#FFC805' }}>Fast, Secure, Done Right</span>
           </h1>
-          <p style={{ fontSize: 17, lineHeight: 1.65, color: '#5B6480', margin: '20px 0 0', maxWidth: 560 }}>
+          <p style={{ fontSize: 17, lineHeight: 1.65, color: 'rgba(255,255,255,0.82)', margin: '20px 0 0', maxWidth: 560 }}>
             From notarization and apostille to translations, visas, passports, immigration documents, and Live Scan — get expert support from certified professionals with 30+ years of experience.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32, alignItems: 'center' }}>
-            <a href="#final-cta" className="ri-btn-primary" style={{ background: '#283778', color: '#FFFFFF', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 24px -8px rgba(40,55,120,0.45)' }}>
+            <a href="#final-cta" className="ri-btn-amber" style={{ background: '#FFC805', color: '#1D2540', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 28px -8px rgba(0,0,0,0.4)' }}>
               {CTA_LABEL}
             </a>
-            <a href="#final-cta" className="ri-btn-outline" style={{ background: '#FFFFFF', color: '#283778', border: '1.5px solid #C9D2E8', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <a href="#final-cta" className="ri-btn-ghost-dark" style={{ background: 'rgba(255,255,255,0.06)', color: '#FFFFFF', border: '1.5px solid rgba(255,255,255,0.4)', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               <Svg inner={IC.upload} size={18} sw={2} />
               Upload Documents
             </a>
-            <a href="tel:+13236451600" style={{ fontWeight: 700, fontSize: 14, color: '#283778', textDecoration: 'underline', textUnderlineOffset: 4 }}>
+            <a href="tel:+13236451600" style={{ fontWeight: 700, fontSize: 14, color: '#FFC805', textDecoration: 'underline', textUnderlineOffset: 4 }}>
               Call 24-hour hotline
             </a>
           </div>
@@ -61,46 +79,37 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero visual: generated photo framed on the navy panel, with floating badges */}
-        <div style={{ flex: '1 1 420px', minWidth: 320, position: 'relative', minHeight: 480 }}>
-          <div style={{ position: 'absolute', inset: '10% -1% 3% 10%', background: 'linear-gradient(135deg, #283778 0%, #33438D 60%, #3A5BB0 100%)', borderRadius: 28 }} />
-          <div
+        {/* Vadim standing on the right — no frame */}
+        <div style={{ flex: '1 1 320px', minWidth: 280, alignSelf: 'stretch', position: 'relative', minHeight: 480 }}>
+          <img
+            src="/images/hero-vadim.webp"
+            alt="Vadim — Executive Director & Immigration Consultant at Rush In"
             style={{
-              position: 'relative',
-              margin: '24px 30px 0 6px',
-              height: 470,
-              borderRadius: 24,
-              overflow: 'hidden',
-              boxShadow: '0 32px 64px -16px rgba(20,28,64,0.45)',
-              border: '5px solid #FFFFFF',
-              background: '#EEF2F9',
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              height: '100%',
+              maxHeight: 560,
+              width: 'auto',
+              maxWidth: '100%',
+              objectFit: 'contain',
+              objectPosition: 'bottom right',
+              filter: 'drop-shadow(0 18px 32px rgba(10,16,40,0.55))',
             }}
-          >
-            <img
-              src="/images/hero-bg.webp"
-              alt="Rush In documentation office in Southern California"
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(29,42,94,0.12) 0%, rgba(29,42,94,0) 35%, rgba(29,42,94,0.35) 100%)' }} />
-            <img
-              src="/images/hero-vadim.webp"
-              alt="Vadim — Executive Director & Immigration Consultant at Rush In"
-              style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', height: '97%', width: 'auto', objectFit: 'contain', objectPosition: 'bottom', filter: 'drop-shadow(0 12px 24px rgba(20,28,64,0.35))' }}
-            />
-          </div>
+          />
 
           <div
             style={{
               position: 'absolute',
-              top: 18,
-              right: 8,
+              top: 24,
+              left: 0,
               background: '#FFC805',
               color: '#1D2540',
               borderRadius: 14,
               padding: '12px 18px',
               fontWeight: 700,
               fontSize: 13,
-              boxShadow: '0 16px 32px -10px rgba(150,110,0,0.45)',
+              boxShadow: '0 16px 32px -10px rgba(0,0,0,0.5)',
               display: 'flex',
               alignItems: 'center',
               gap: 8,
@@ -113,8 +122,8 @@ export default function Hero() {
           <div
             style={{
               position: 'absolute',
-              bottom: 34,
-              left: 0,
+              bottom: 120,
+              left: -6,
               background: '#FFFFFF',
               border: '1px solid #E4E8F3',
               borderRadius: 14,
@@ -122,33 +131,11 @@ export default function Hero() {
               fontWeight: 600,
               fontSize: 12.5,
               color: '#1D2540',
-              boxShadow: '0 16px 32px -10px rgba(40,55,120,0.25)',
+              boxShadow: '0 16px 32px -10px rgba(10,16,40,0.5)',
               display: 'flex',
               alignItems: 'center',
               gap: 8,
               animation: 'riFloat2 6s ease-in-out infinite',
-            }}
-          >
-            <Svg inner={IC.mapPin} size={16} stroke="#283778" sw={2} />
-            Mobile notary · LA to San Diego
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              top: '42%',
-              left: -6,
-              background: '#FFFFFF',
-              border: '1px solid #E4E8F3',
-              borderRadius: 14,
-              padding: '10px 16px',
-              fontWeight: 600,
-              fontSize: 12.5,
-              color: '#1D2540',
-              boxShadow: '0 16px 32px -10px rgba(40,55,120,0.25)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 8,
-              animation: 'riFloat 7s ease-in-out infinite',
             }}
           >
             <Svg inner={IC.shieldCheck} size={16} stroke="#4AA4EA" sw={2} />
