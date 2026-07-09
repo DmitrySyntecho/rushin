@@ -39,16 +39,9 @@ export default function Footer() {
       <div className="ri-foot-wrap" style={{ maxWidth: 1240, margin: '0 auto', padding: '72px 24px 0' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 44 }}>
           <div style={{ gridColumn: 'span 1' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
-              <div style={{ width: 40, height: 40, borderRadius: 11, background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                <span className="font-ub" style={{ fontWeight: 700, fontSize: 20, color: '#283778' }}>R</span>
-                <span style={{ position: 'absolute', right: -3, bottom: -3, width: 13, height: 13, borderRadius: '50%', background: '#FFC805', border: '2px solid #1B2450' }} />
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-                <span className="font-ub" style={{ fontWeight: 700, fontSize: 18, color: '#FFFFFF', letterSpacing: '-0.01em' }}>Rush In</span>
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.14em', color: '#8A93BC', textTransform: 'uppercase', marginTop: 3 }}>Documentation Center</span>
-              </div>
-            </div>
+            <a href="/#top" aria-label="Rush In Documentation Center — home" style={{ display: 'inline-flex' }}>
+              <img src="/rushin-logo-white.svg" alt="Rush In Documentation Center" style={{ height: 40, width: 'auto', display: 'block' }} />
+            </a>
             <p style={{ fontSize: 13, lineHeight: 1.7, margin: '18px 0 0', maxWidth: 280 }}>
               California-born company since 1994. Notary Public, apostille, certified translation, Live Scan, passport &amp; visa services, and immigration documentation in Southern California.
             </p>

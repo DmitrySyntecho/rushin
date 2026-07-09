@@ -26,17 +26,10 @@ const OFFICES = [
   { name: 'San Diego', addr: '11852 Zach Dr, CA 92128 · By appointment' },
 ];
 
-function RushLogo({ onDark = false }: { onDark?: boolean }) {
+function RushLogo() {
   return (
-    <a href="/#top" style={{ display: 'flex', alignItems: 'center', gap: 11, flexShrink: 0 }}>
-      <div style={{ width: 42, height: 42, borderRadius: 12, background: onDark ? '#FFFFFF' : '#283778', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-        <span className="font-ub" style={{ fontWeight: 700, fontSize: 21, color: onDark ? '#283778' : '#FFFFFF' }}>R</span>
-        <span style={{ position: 'absolute', right: -3, bottom: -3, width: 13, height: 13, borderRadius: '50%', background: '#FFC805', border: '2px solid #FFFFFF' }} />
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-        <span className="font-ub" style={{ fontWeight: 700, fontSize: 20, color: '#283778', letterSpacing: '-0.01em' }}>Rush In</span>
-        <span style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: '0.14em', color: '#5B6480', textTransform: 'uppercase', marginTop: 3 }}>Documentation Center</span>
-      </div>
+    <a href="/#top" aria-label="Rush In Documentation Center — home" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+      <img src="/rushin-logo.svg" alt="Rush In Documentation Center" style={{ height: 38, width: 'auto', display: 'block' }} />
     </a>
   );
 }
