@@ -51,8 +51,29 @@ export default function ServicesCarousel() {
   return (
     <section id="services" style={{ background: '#F6F8FC' }}>
       <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24, alignItems: 'flex-end', justifyContent: 'space-between' }}>
-          <div style={{ maxWidth: 640 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 44, alignItems: 'center', justifyContent: 'space-between' }}>
+          {/* Video on the left */}
+          <div style={{ flex: '1 1 380px', width: '100%', maxWidth: 480 }}>
+            <div style={{ position: 'relative', borderRadius: 22, overflow: 'hidden', boxShadow: '0 28px 56px -20px rgba(40,55,120,0.35)', border: '1px solid #E4E8F3', aspectRatio: '16 / 9', background: '#EEF2F9' }}>
+              <video
+                src="/videos/services.mp4"
+                poster="/images/services-poster.webp"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,64,0) 60%, rgba(20,28,64,0.28) 100%)', pointerEvents: 'none' }} />
+              <div style={{ position: 'absolute', bottom: 14, left: 14, display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.92)', color: '#1D2540', borderRadius: 999, padding: '7px 14px', fontSize: 12, fontWeight: 700, backdropFilter: 'blur(6px)' }}>
+                <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#FFC805', display: 'inline-block' }} />
+                Certified notary at work
+              </div>
+            </div>
+          </div>
+          {/* Text on the right */}
+          <div style={{ flex: '1 1 420px', maxWidth: 560 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>What we help with</div>
             <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
               Every document service, one trusted team
@@ -61,6 +82,10 @@ export default function ServicesCarousel() {
               Notary Public Los Angeles, apostille services, mobile notary, document translation, immigration consulting, Live Scan, and passport services — handled end to end.
             </p>
           </div>
+        </div>
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, marginTop: 44, flexWrap: 'wrap' }}>
+          <div style={{ fontSize: 13, fontWeight: 600, color: '#8A91A8' }}>Swipe to explore all services →</div>
           <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
             <button className="ri-arrow" aria-label="Previous services" onClick={() => scrollBy(-1)} disabled={atStart}>
               <Svg inner={IC.arrowLeft} size={20} sw={2} />
@@ -71,7 +96,7 @@ export default function ServicesCarousel() {
           </div>
         </div>
 
-        <div ref={trackRef} className="ri-carousel-track" style={{ marginTop: 40 }}>
+        <div ref={trackRef} className="ri-carousel-track" style={{ marginTop: 18 }}>
           {SERVICES.map((s) => (
             <a
               key={s.title}

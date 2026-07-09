@@ -307,3 +307,46 @@ textarea:focus {
     overflow-x: hidden;
   }
 }
+
+/* ============ Two-tier navigation ============ */
+.ri-navlink {
+  transition: background 0.15s, color 0.15s;
+}
+.ri-navlink:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff !important;
+}
+.ri-navlink-active {
+  color: #ffffff !important;
+}
+.ri-phonebtn {
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.ri-phonebtn:hover {
+  background: #ffd84d !important;
+  transform: translateY(-1px);
+}
+.ri-megapill {
+  transition: transform 0.16s, box-shadow 0.16s, filter 0.16s;
+}
+.ri-megapill:hover {
+  transform: translateX(4px);
+  box-shadow: 0 10px 22px -10px rgba(40, 55, 120, 0.4);
+  filter: saturate(1.05);
+}
+.ri-loc {
+  transition: color 0.15s;
+}
+.ri-mobrow {
+  display: none;
+}
+@media (max-width: 1040px) {
+  /* Collapse the two-tier bar into a single compact mobile bar */
+  .ri-topbar,
+  .ri-desktop-nav {
+    display: none !important;
+  }
+  .ri-mobrow {
+    display: flex !important;
+  }
+}

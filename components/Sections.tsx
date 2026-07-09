@@ -98,34 +98,24 @@ export function UrgentSameDay() {
             Mobile notary available in Los Angeles, Santa Barbara, Orange, Ventura &amp; San Diego areas
           </div>
         </div>
-        <div style={{ flex: '0 1 340px', minWidth: 280, display: 'flex', justifyContent: 'center' }}>
-          <div style={{ position: 'relative', width: 300, height: 280 }}>
-            <div style={{ position: 'absolute', inset: '30px 20px auto 0', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.16)', borderRadius: 20, padding: 22, backdropFilter: 'blur(8px)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(255,200,5,0.16)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Svg inner={IC.clock} size={22} stroke="#FFC805" sw={1.75} />
-                </div>
-                <div>
-                  <div style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 14 }}>Mobile notary ETA</div>
-                  <div style={{ color: 'rgba(255,255,255,0.65)', fontSize: 12 }}>As fast as 1 hour in LA</div>
-                </div>
-              </div>
-              <div style={{ marginTop: 18, height: 8, borderRadius: 4, background: 'rgba(255,255,255,0.12)', overflow: 'hidden' }}>
-                <div style={{ width: '72%', height: '100%', background: 'linear-gradient(90deg, #4AA4EA, #FFC805)', borderRadius: 4 }} />
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 11, color: 'rgba(255,255,255,0.55)', fontWeight: 600 }}>
-                <span>Dispatched</span>
-                <span>On the way</span>
-              </div>
+        <div style={{ flex: '0 1 380px', minWidth: 280, display: 'flex', justifyContent: 'center' }}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: 360 }}>
+            <div style={{ borderRadius: 24, overflow: 'hidden', boxShadow: '0 32px 64px -20px rgba(0,0,0,0.6)', border: '1px solid rgba(255,255,255,0.16)', aspectRatio: '3 / 4' }}>
+              <img src="/images/urgent-notary.webp" alt="Mobile notary arriving for a same-day appointment" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,64,0) 55%, rgba(20,28,64,0.35) 100%)', pointerEvents: 'none' }} />
             </div>
-            <div style={{ position: 'absolute', bottom: 0, right: 0, background: '#FFFFFF', borderRadius: 16, padding: '16px 20px', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', gap: 12, animation: 'riFloat 5s ease-in-out infinite' }}>
-              <div style={{ width: 40, height: 40, borderRadius: '50%', border: '2px dashed #FFC805', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ position: 'absolute', bottom: -20, left: -14, background: '#FFFFFF', borderRadius: 16, padding: '14px 18px', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', gap: 12, animation: 'riFloat 5s ease-in-out infinite' }}>
+              <div style={{ width: 40, height: 40, borderRadius: '50%', border: '2px dashed #FFC805', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                 <Svg inner={IC.fileCheck} size={20} stroke="#283778" sw={1.75} />
               </div>
               <div>
                 <div style={{ fontWeight: 700, fontSize: 13, color: '#1D2540' }}>Notarized &amp; sealed</div>
                 <div style={{ fontSize: 11.5, color: '#5B6480' }}>Today, 3:42 PM</div>
               </div>
+            </div>
+            <div style={{ position: 'absolute', top: 16, right: 16, background: 'rgba(255,200,5,0.95)', color: '#1D2540', borderRadius: 999, padding: '7px 14px', fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6, boxShadow: '0 10px 20px -8px rgba(0,0,0,0.4)' }}>
+              <Svg inner={IC.clock} size={14} sw={2.2} />
+              ETA ~1 hr in LA
             </div>
           </div>
         </div>

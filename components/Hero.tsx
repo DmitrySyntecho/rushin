@@ -71,7 +71,7 @@ export default function Hero() {
               Call 24-hour hotline
             </a>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px 28px', marginTop: 36 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '16px 28px', marginTop: 36, maxWidth: 520 }}>
             <TrustItem inner={IC.shieldCheck}>185,000+ successful cases</TrustItem>
             <TrustItem inner={IC.clock}>Same-day &amp; mobile notary</TrustItem>
             <TrustItem inner={IC.award}>Certified professionals</TrustItem>
@@ -80,7 +80,7 @@ export default function Hero() {
         </div>
 
         {/* Vadim standing on the right — no frame */}
-        <div className="ri-hero-visual" style={{ flex: '1 1 320px', minWidth: 280, alignSelf: 'stretch', position: 'relative', minHeight: 480 }}>
+        <div className="ri-hero-visual" style={{ flex: '1 1 340px', minWidth: 280, alignSelf: 'stretch', position: 'relative', minHeight: 620 }}>
           <img
             src="/images/hero-vadim.webp"
             alt="Vadim — Executive Director & Immigration Consultant at Rush In"
@@ -89,10 +89,10 @@ export default function Hero() {
               position: 'absolute',
               bottom: 0,
               right: 0,
-              height: '100%',
-              maxHeight: 560,
+              height: '104%',
+              maxHeight: 760,
               width: 'auto',
-              maxWidth: '100%',
+              maxWidth: '110%',
               objectFit: 'contain',
               objectPosition: 'bottom right',
               filter: 'drop-shadow(0 18px 32px rgba(10,16,40,0.55))',
@@ -100,10 +100,11 @@ export default function Hero() {
           />
 
           <div
+            className="ri-hero-badge-sameday"
             style={{
               position: 'absolute',
-              top: 24,
-              left: 0,
+              top: '48%',
+              left: -8,
               background: '#FFC805',
               color: '#1D2540',
               borderRadius: 14,
