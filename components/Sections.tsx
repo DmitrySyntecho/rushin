@@ -1,5 +1,6 @@
 import React from 'react';
 import { Svg, IC } from './icons';
+import BookConsult from './ConsultModal';
 
 const CTA_LABEL = 'Get a Quote';
 
@@ -432,7 +433,7 @@ export function Reviews() {
 
 /* ============ FINAL CTA ============ */
 export function FinalCta() {
-  const inputStyle: React.CSSProperties = { border: '1.5px solid #E4E8F3', borderRadius: 12, padding: '13px 16px', fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: '#1D2540', outline: 'none' };
+  const inputStyle: React.CSSProperties = { width: '100%', minWidth: 0, boxSizing: 'border-box', border: '1.5px solid #E4E8F3', borderRadius: 12, padding: '13px 16px', fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: '#1D2540', outline: 'none' };
   return (
     <section id="final-cta" style={{ background: 'linear-gradient(135deg, #F6F8FC 0%, #EAF2FC 60%, #FFF6DC 130%)' }}>
       <div className="ri-sec ri-flex-gap" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px', display: 'flex', flexWrap: 'wrap', gap: 56, alignItems: 'center' }}>
@@ -444,7 +445,7 @@ export function FinalCta() {
             Send your documents today and our certified team will guide you through the fastest, safest next step.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32 }}>
-            <a href="tel:+13236451600" className="ri-btn-primary" style={{ background: '#283778', color: '#FFFFFF', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 24px -8px rgba(40,55,120,0.45)' }}>Book a Consultation</a>
+            <BookConsult className="ri-btn-primary" style={{ background: '#283778', color: '#FFFFFF', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 24px -8px rgba(40,55,120,0.45)' }} />
             <a href="tel:+13236451600" className="ri-btn-outline" style={{ background: '#FFFFFF', color: '#283778', border: '1.5px solid #C9D2E8', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16 }}>Call +1 323 645 1600</a>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 28, alignItems: 'center' }}>
@@ -463,7 +464,7 @@ export function FinalCta() {
                 Full name
                 <input type="text" placeholder="Your full name" style={inputStyle} />
               </label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+              <div className="ri-form-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                 <label style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 12.5, fontWeight: 700, color: '#1D2540' }}>
                   Email
                   <input type="email" placeholder="you@email.com" style={{ ...inputStyle, minWidth: 0 }} />
