@@ -6,10 +6,10 @@ const CTA_LABEL = 'Get a Quote';
 
 /* ============ TRUST METRICS ============ */
 export function TrustMetrics() {
-  const items: { inner: string; big: string; small: string; amber?: boolean }[] = [
+  const items: { inner: string; big: string; small: string; amber?: boolean; hideMobile?: boolean }[] = [
     { inner: IC.shieldCheck, big: '185,000+', small: 'successful cases' },
     { inner: IC.award, big: '30+ years', small: 'of experience since 1994' },
-    { inner: IC.clock, big: '24-hour', small: 'hotline, always answered' },
+    { inner: IC.clock, big: '24-hour', small: 'hotline, always answered', hideMobile: true },
     { inner: IC.zap, big: 'Same-day', small: 'service available', amber: true },
     { inner: IC.fileCheck, big: 'Certified', small: 'bonded specialists' },
   ];
@@ -17,7 +17,7 @@ export function TrustMetrics() {
     <section style={{ borderTop: '1px solid #E4E8F3', borderBottom: '1px solid #E4E8F3', background: '#FFFFFF' }}>
       <div className="ri-trust-grid" style={{ maxWidth: 1240, margin: '0 auto', padding: '36px 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
         {items.map((it) => (
-          <div key={it.big} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+          <div key={it.big} className={it.hideMobile ? 'ri-hide-mobile' : undefined} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ width: 48, height: 48, borderRadius: 14, background: it.amber ? '#FFF7DC' : '#F2F5FB', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <Svg inner={it.inner} size={22} stroke={it.amber ? '#B8900A' : '#283778'} sw={1.75} />
             </div>

@@ -423,6 +423,10 @@ textarea:focus {
     grid-template-columns: 1fr 1fr !important;
     gap: 20px 14px !important;
   }
+  /* Hidden on mobile only */
+  .ri-hide-mobile {
+    display: none !important;
+  }
 
   /* Contact form: stack email + phone full width */
   .ri-form-2col {
