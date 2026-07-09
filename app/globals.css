@@ -374,7 +374,8 @@ textarea:focus {
   }
   .ri-hero-left h1 {
     order: 2;
-    font-size: clamp(18px, 5.2vw, 23px) !important;
+    font-size: clamp(21px, 6vw, 28px) !important;
+    line-height: 1.16 !important;
     max-width: 100% !important;
     margin: 20px auto 0 !important;
   }
