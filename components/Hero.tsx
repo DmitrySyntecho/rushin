@@ -59,7 +59,7 @@ export default function Hero() {
           <p style={{ fontSize: 17, lineHeight: 1.65, color: 'rgba(255,255,255,0.82)', margin: '20px 0 0', maxWidth: 560 }}>
             From notarization and apostille to translations, visas, passports, immigration documents, and Live Scan — get expert support from certified professionals with 30+ years of experience.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32, alignItems: 'center' }}>
+          <div className="ri-hero-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32, alignItems: 'center' }}>
             <a href="#final-cta" className="ri-btn-amber" style={{ background: '#FFC805', color: '#1D2540', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 28px -8px rgba(0,0,0,0.4)' }}>
               {CTA_LABEL}
             </a>
@@ -71,7 +71,7 @@ export default function Hero() {
               Call 24-hour hotline
             </a>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '16px 28px', marginTop: 36, maxWidth: 520 }}>
+          <div className="ri-hero-bullets" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: '16px 28px', marginTop: 36, maxWidth: 520 }}>
             <TrustItem inner={IC.shieldCheck}>185,000+ successful cases</TrustItem>
             <TrustItem inner={IC.clock}>Same-day &amp; mobile notary</TrustItem>
             <TrustItem inner={IC.award}>Certified professionals</TrustItem>

@@ -14,7 +14,7 @@ export function TrustMetrics() {
   ];
   return (
     <section style={{ borderTop: '1px solid #E4E8F3', borderBottom: '1px solid #E4E8F3', background: '#FFFFFF' }}>
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '36px 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
+      <div className="ri-trust-grid" style={{ maxWidth: 1240, margin: '0 auto', padding: '36px 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 24 }}>
         {items.map((it) => (
           <div key={it.big} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <div style={{ width: 48, height: 48, borderRadius: 14, background: it.amber ? '#FFF7DC' : '#F2F5FB', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>

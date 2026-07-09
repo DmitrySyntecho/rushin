@@ -1,7 +1,24 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import { Svg, IC } from './icons';
 
 export default function MobileCtaBar() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById('top');
+    if (!hero) return;
+    // Show the bar only once the hero (first block) is scrolled out of view,
+    // i.e. starting from the second block onward.
+    const io = new IntersectionObserver(
+      ([entry]) => setShow(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    io.observe(hero);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div
       className="mq-mobile-bar"
@@ -11,6 +28,7 @@ export default function MobileCtaBar() {
         left: 0,
         right: 0,
         zIndex: 95,
+        display: show ? undefined : 'none',
         background: 'rgba(255,255,255,0.96)',
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',

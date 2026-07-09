@@ -351,3 +351,72 @@ textarea:focus {
     display: flex !important;
   }
 }
+
+/* ============ Mobile hero + buttons + trust grid ============ */
+@media (max-width: 768px) {
+  /* Center the whole hero, keep it inside the screen */
+  .ri-hero-content {
+    padding-top: 40px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    gap: 4px !important;
+  }
+  .ri-hero-left {
+    flex-basis: 100% !important;
+    text-align: center !important;
+    padding-bottom: 18px !important;
+  }
+  .ri-hero-left h1 {
+    font-size: clamp(18px, 5.2vw, 23px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .ri-hero-left p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .ri-hero-actions {
+    justify-content: center !important;
+  }
+  .ri-hero-bullets {
+    justify-content: center !important;
+    max-width: 440px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .ri-hero-visual {
+    flex-basis: 100% !important;
+    min-height: 360px !important;
+  }
+  .ri-hero-vadim {
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    object-position: bottom center !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 420px !important;
+  }
+  .ri-hero-badge-sameday {
+    top: 22px !important;
+    left: 6px !important;
+  }
+
+  /* All primary CTAs go full-width of the screen */
+  .ri-btn-primary,
+  .ri-btn-outline,
+  .ri-btn-amber,
+  .ri-btn-ghost-dark {
+    display: flex !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Trust metrics: two per row */
+  .ri-trust-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px 14px !important;
+  }
+}
