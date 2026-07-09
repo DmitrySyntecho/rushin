@@ -6,18 +6,18 @@ import { Svg, IC } from './icons';
 const PHONE = '+1 323 645 1600';
 const PHONE_HREF = 'tel:+13236451600';
 
-type Pill = { label: string; href: string; icon: string; tint: string };
+type Pill = { label: string; href: string; icon: string; tint: string; img: string; desc: string };
 
 const SERVICES: Pill[] = [
-  { label: 'Russian Visa', href: '#immigration', icon: IC.feather, tint: '#FFF3D6' },
-  { label: 'Apostille Services', href: '#international', icon: IC.fileSeal, tint: '#ECEBFB' },
-  { label: 'Mobile Notary', href: '#notarization', icon: IC.mapPin, tint: '#DBF3E8' },
-  { label: 'Document Translation', href: '#international', icon: IC.scale, tint: '#EAF3D8' },
-  { label: 'Live Scan', href: '#immigration', icon: IC.fingerprint, tint: '#DEEEFB' },
-  { label: 'Green Card', href: '#immigration', icon: IC.idCard, tint: '#DBF3E8' },
-  { label: 'Marriage-Based Green Card', href: '#immigration', icon: IC.heart, tint: '#DBF3E8' },
-  { label: 'Green Card Through the Diversity', href: '#immigration', icon: IC.globe, tint: '#F7E3F1' },
-  { label: 'Same-Day Marriage Services', href: '#services', icon: IC.heart, tint: '#F7E3F1' },
+  { label: 'Russian Visa', href: '#immigration', icon: IC.feather, tint: '#FFF3D6', img: '/images/services/visa.webp', desc: 'Expedited visas in 48–72 hours — guaranteed or your money back.' },
+  { label: 'Apostille Services', href: '#international', icon: IC.fileSeal, tint: '#ECEBFB', img: '/images/services/apostille.webp', desc: 'State & federal apostilles accepted in 190+ countries.' },
+  { label: 'Mobile Notary', href: '#notarization', icon: IC.mapPin, tint: '#DBF3E8', img: '/images/services/notary.webp', desc: 'We come to you — same-day notary across Southern California.' },
+  { label: 'Document Translation', href: '#international', icon: IC.scale, tint: '#EAF3D8', img: '/images/services/translation.webp', desc: 'ATA-certified translation in any language, certified for filing.' },
+  { label: 'Live Scan', href: '#immigration', icon: IC.fingerprint, tint: '#DEEEFB', img: '/images/services/livescan.webp', desc: 'DOJ & FBI-approved digital fingerprinting on site.' },
+  { label: 'Green Card', href: '#immigration', icon: IC.idCard, tint: '#DBF3E8', img: '/images/services/greencard.webp', desc: 'Family, employment & DV-lottery green card filings.' },
+  { label: 'Marriage-Based Green Card', href: '#immigration', icon: IC.heart, tint: '#DBF3E8', img: '/images/services/marriage-gc.webp', desc: 'Compliant spousal petitions prepared start to finish.' },
+  { label: 'Green Card Through the Diversity', href: '#immigration', icon: IC.globe, tint: '#F7E3F1', img: '/images/services/diversity.webp', desc: 'DV-lottery preparation and submission, handled for you.' },
+  { label: 'Same-Day Marriage Services', href: '#services', icon: IC.heart, tint: '#F7E3F1', img: '/images/services/marriage.webp', desc: 'Confidential same-day marriage licensing & ceremony in LA.' },
 ];
 
 const OFFICES = [
@@ -47,6 +47,7 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [officesOpen, setOfficesOpen] = useState(false);
   const [mobServices, setMobServices] = useState(false);
+  const [activeSvc, setActiveSvc] = useState(0);
   const [lang, setLang] = useState<'en' | 'ru'>('en');
 
   return (
@@ -81,21 +82,45 @@ export default function Header() {
 
           {/* Services mega dropdown */}
           <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }} onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-            <button className="ri-navlink" style={{ ...navLink, font: 'inherit', background: 'none', border: 'none', cursor: 'pointer' }}>
+            <button className="ri-navlink" style={{ ...navLink, fontFamily: 'inherit', background: 'none', border: 'none', cursor: 'pointer' }}>
               Services
               <Svg inner={IC.chevron} size={13} sw={2.5} style={{ transform: servicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
             </button>
             {servicesOpen && (
-              <div style={{ position: 'absolute', top: '100%', left: 0, paddingTop: 10, zIndex: 100 }}>
-                <div style={{ background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 20, boxShadow: '0 28px 56px -16px rgba(40,55,120,0.28)', padding: 12, width: 372, display: 'flex', flexDirection: 'column', gap: 7 }}>
-                  {SERVICES.map((s) => (
-                    <a key={s.label} href={s.href} onClick={() => setServicesOpen(false)} className="ri-megapill" style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '11px 14px', borderRadius: 14, background: s.tint, color: '#1D2540' }}>
-                      <span style={{ width: 38, height: 38, borderRadius: 11, background: 'rgba(255,255,255,0.75)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                        <Svg inner={s.icon} size={21} stroke="#283778" sw={1.8} />
-                      </span>
-                      <span className="font-ub" style={{ fontWeight: 700, fontSize: 14.5, lineHeight: 1.25 }}>{s.label}</span>
-                    </a>
-                  ))}
+              <div style={{ position: 'absolute', top: '100%', left: -40, paddingTop: 10, zIndex: 100 }}>
+                <div style={{ background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 22, boxShadow: '0 30px 60px -18px rgba(40,55,120,0.32)', padding: 14, width: 740, display: 'flex', gap: 14 }}>
+                  {/* Pills — two columns */}
+                  <div style={{ flex: 1, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, alignContent: 'start' }}>
+                    {SERVICES.map((s, i) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        onMouseEnter={() => setActiveSvc(i)}
+                        onClick={() => setServicesOpen(false)}
+                        className="ri-megapill"
+                        style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', borderRadius: 13, background: s.tint, color: '#1D2540', outline: i === activeSvc ? '2px solid #283778' : '2px solid transparent', outlineOffset: -2 }}
+                      >
+                        <span style={{ width: 34, height: 34, borderRadius: 10, background: 'rgba(255,255,255,0.82)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                          <Svg inner={s.icon} size={19} stroke="#283778" sw={1.8} />
+                        </span>
+                        <span className="font-ub" style={{ fontWeight: 700, fontSize: 13.5, lineHeight: 1.2 }}>{s.label}</span>
+                      </a>
+                    ))}
+                  </div>
+                  {/* Live preview banner */}
+                  <a
+                    href={SERVICES[activeSvc].href}
+                    onClick={() => setServicesOpen(false)}
+                    style={{ width: 252, flexShrink: 0, borderRadius: 16, overflow: 'hidden', position: 'relative', background: '#EEF2F9', display: 'block', minHeight: 344 }}
+                  >
+                    <img key={SERVICES[activeSvc].img} src={SERVICES[activeSvc].img} alt={SERVICES[activeSvc].label} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,64,0) 28%, rgba(20,28,64,0.55) 66%, rgba(20,28,64,0.92) 100%)' }} />
+                    <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: 18 }}>
+                      <div className="font-ub" style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 17, lineHeight: 1.2 }}>{SERVICES[activeSvc].label}</div>
+                      <div style={{ color: 'rgba(255,255,255,0.82)', fontSize: 12.5, lineHeight: 1.5, marginTop: 7 }}>{SERVICES[activeSvc].desc}</div>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 12, color: '#FFC805', fontWeight: 700, fontSize: 12.5 }}>Learn more →</div>
+                    </div>
+                  </a>
                 </div>
               </div>
             )}
