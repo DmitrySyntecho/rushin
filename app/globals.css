@@ -370,7 +370,7 @@ textarea:focus {
     padding-bottom: 8px !important;
   }
   .ri-hero-badge {
-    order: 1;
+    display: none !important;
   }
   .ri-hero-left h1 {
     order: 2;

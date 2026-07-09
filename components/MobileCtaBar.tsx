@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Svg, IC } from './icons';
+import { openConsult } from './ConsultModal';
 
 export default function MobileCtaBar() {
   const [show, setShow] = useState(false);
@@ -58,9 +59,9 @@ export default function MobileCtaBar() {
         <Svg inner={IC.upload} size={15} sw={2} />
         Upload
       </a>
-      <a href="#final-cta" style={{ flex: 1.2, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#283778', color: '#FFFFFF', borderRadius: 12, padding: '13px 8px', fontWeight: 700, fontSize: 13 }}>
+      <button type="button" onClick={openConsult} style={{ flex: 1.2, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#283778', color: '#FFFFFF', border: 'none', borderRadius: 12, padding: '13px 8px', fontWeight: 700, fontSize: 13, fontFamily: "'Montserrat', sans-serif", cursor: 'pointer' }}>
         Book
-      </a>
+      </button>
     </div>
   );
 }

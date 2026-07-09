@@ -1,7 +1,6 @@
 import React from 'react';
 import { Svg, IC } from './icons';
-
-const CTA_LABEL = 'Get a Quote';
+import { BookButton } from './ConsultModal';
 const LIGHT_BLUE = '#8FBEF0';
 
 function TrustItem({ inner, children }: { inner: string; children: React.ReactNode }) {
@@ -79,9 +78,7 @@ export default function Hero() {
             From notarization and apostille to translations, visas, passports, immigration documents, and Live Scan — get expert support from certified professionals with 30+ years of experience.
           </p>
           <div className="ri-hero-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: 14, marginTop: 32, alignItems: 'center' }}>
-            <a href="#final-cta" className="ri-btn-amber" style={{ background: '#FFC805', color: '#1D2540', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 28px -8px rgba(0,0,0,0.4)' }}>
-              {CTA_LABEL}
-            </a>
+            <BookButton label="Book Consultation" className="ri-btn-amber" style={{ background: '#FFC805', color: '#1D2540', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, boxShadow: '0 12px 28px -8px rgba(0,0,0,0.4)' }} />
             <a href="#final-cta" className="ri-btn-ghost-dark" style={{ background: 'rgba(255,255,255,0.06)', color: '#FFFFFF', border: '1.5px solid rgba(255,255,255,0.4)', padding: '16px 30px', borderRadius: 14, fontWeight: 700, fontSize: 16, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               <Svg inner={IC.upload} size={18} sw={2} />
               Upload Documents

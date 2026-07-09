@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import ConsultModal from '@/components/ConsultModal';
 
 export const metadata: Metadata = {
   title: 'Rush In Documentation Center — Notary, Apostille & Document Services',
@@ -17,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <ConsultModal />
+      </body>
     </html>
   );
 }

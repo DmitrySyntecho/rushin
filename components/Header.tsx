@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Svg, IC } from './icons';
+import { openConsult } from './ConsultModal';
 
 const PHONE = '+1 323 645 1600';
 const PHONE_HREF = 'tel:+13236451600';
@@ -211,7 +212,7 @@ export default function Header() {
               <button onClick={() => setLang('ru')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px', borderRadius: 8, color: lang === 'ru' ? '#283778' : '#8A91A8', font: 'inherit' }}>RU</button>
             </div>
 
-            <a href="/#final-cta" onClick={() => setMobileOpen(false)} style={{ marginTop: 10, background: '#FFC805', color: '#1D2540', padding: 16, borderRadius: 12, textAlign: 'center', fontWeight: 700 }}>Get a Quote</a>
+            <button type="button" onClick={() => { setMobileOpen(false); openConsult(); }} style={{ marginTop: 10, background: '#FFC805', color: '#1D2540', border: 'none', padding: 16, borderRadius: 12, textAlign: 'center', fontWeight: 700, fontSize: 16, fontFamily: "'Montserrat', sans-serif", cursor: 'pointer' }}>Book Consultation</button>
           </div>
         </div>
       )}
