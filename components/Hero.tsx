@@ -53,7 +53,7 @@ export default function Hero() {
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#FFC805', display: 'inline-block' }} />
             Southern California · Since 1994
           </div>
-          <h1 className="font-ub" style={{ fontSize: 'clamp(34px, 4.4vw, 58px)', lineHeight: 1.15, fontWeight: 700, color: '#FFFFFF', margin: '24px 0 0', letterSpacing: '-0.01em' }}>
+          <h1 className="font-ub" style={{ fontSize: 'clamp(28px, 3.1vw, 44px)', lineHeight: 1.18, fontWeight: 700, color: '#FFFFFF', margin: '24px 0 0', letterSpacing: '-0.01em', maxWidth: 640 }}>
             Professional Notary, Apostille &amp; Document Services — <span style={{ color: '#FFC805' }}>Fast, Secure, Done Right</span>
           </h1>
           <p style={{ fontSize: 17, lineHeight: 1.65, color: 'rgba(255,255,255,0.82)', margin: '20px 0 0', maxWidth: 560 }}>

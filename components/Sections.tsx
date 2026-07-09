@@ -130,8 +130,19 @@ export function International() {
   return (
     <section id="international" style={{ background: '#F6F8FC' }}>
       <div className="ri-sec" style={{ maxWidth: 1240, margin: '0 auto', padding: '96px 24px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40, alignItems: 'flex-end', justifyContent: 'space-between' }}>
-          <div style={{ maxWidth: 620 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 44, alignItems: 'center', justifyContent: 'space-between' }}>
+          {/* Image on the left */}
+          <div style={{ flex: '1 1 380px', width: '100%', maxWidth: 480 }}>
+            <div style={{ position: 'relative', borderRadius: 22, overflow: 'hidden', boxShadow: '0 28px 56px -20px rgba(40,55,120,0.32)', border: '1px solid #E4E8F3', aspectRatio: '16 / 9', background: '#EEF2F9' }}>
+              <img src="/images/international.webp" alt="Apostille and internationally accepted documents" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div style={{ position: 'absolute', bottom: 14, left: 14, display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.92)', color: '#1D2540', borderRadius: 999, padding: '7px 14px', fontSize: 12, fontWeight: 700, backdropFilter: 'blur(6px)' }}>
+                <Svg inner={IC.globe} size={15} stroke="#283778" sw={2} />
+                Accepted in 190+ countries
+              </div>
+            </div>
+          </div>
+          {/* Text on the right */}
+          <div style={{ flex: '1 1 420px', maxWidth: 560 }}>
             <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: '0.12em', color: '#4AA4EA', textTransform: 'uppercase' }}>International documents</div>
             <h2 className="font-ub" style={{ fontSize: 'clamp(28px, 3.2vw, 42px)', lineHeight: 1.2, fontWeight: 700, color: '#1D2540', margin: '12px 0 0' }}>
               Documents accepted anywhere in the world
@@ -139,10 +150,10 @@ export function International() {
             <p style={{ fontSize: 15.5, lineHeight: 1.65, color: '#5B6480', margin: '16px 0 0' }}>
               Fast apostille and embassy authentication in all 50 states and at the federal level — with strong working relationships with the Secretary of State, FBI, and embassies to expedite every request.
             </p>
+            <a href="#final-cta" className="ri-btn-primary" style={{ display: 'inline-block', marginTop: 24, background: '#283778', color: '#FFFFFF', padding: '15px 28px', borderRadius: 14, fontWeight: 700, fontSize: 15, boxShadow: '0 10px 20px -8px rgba(40,55,120,0.45)' }}>
+              Start Apostille Request
+            </a>
           </div>
-          <a href="#final-cta" className="ri-btn-primary" style={{ background: '#283778', color: '#FFFFFF', padding: '15px 28px', borderRadius: 14, fontWeight: 700, fontSize: 15, flexShrink: 0, boxShadow: '0 10px 20px -8px rgba(40,55,120,0.45)' }}>
-            Start Apostille Request
-          </a>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginTop: 48 }}>
           <div style={{ background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 20, padding: 32 }}>
