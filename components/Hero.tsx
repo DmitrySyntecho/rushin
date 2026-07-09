@@ -58,12 +58,20 @@ export default function Hero() {
             Professional Notary, Apostille &amp; Document Services — <span style={{ color: '#FFC805' }}>Fast, Secure, Done Right</span>
           </h1>
 
-          {/* Mobile-only: Vadim in a subtle framed card right under the heading */}
-          <div className="ri-hero-vadim-mobile" style={{ display: 'none', width: '100%', marginTop: 16 }}>
-            <div style={{ position: 'relative', width: '100%', maxWidth: 300, margin: '0 auto', aspectRatio: '1 / 1', borderRadius: 20, overflow: 'hidden', background: '#1D2A5E', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 18px 40px -22px rgba(10,16,40,0.55)' }}>
-              <img src="/images/hero-bg.webp" alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,64,0.45) 0%, rgba(20,28,64,0.1) 45%, rgba(20,28,64,0.5) 100%)' }} />
-              <img src="/images/hero-vadim.webp" alt="Vadim — Executive Director & Immigration Consultant at Rush In" style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', height: '96%', width: 'auto', maxWidth: '110%', objectFit: 'contain', objectPosition: 'bottom center' }} />
+          {/* Mobile-only: Vadim on the full-width section background, with floating badges */}
+          <div className="ri-hero-vadim-mobile" style={{ display: 'none', position: 'relative', width: '100%', marginTop: 6 }}>
+            <img
+              src="/images/hero-vadim.webp"
+              alt="Vadim — Executive Director & Immigration Consultant at Rush In"
+              style={{ display: 'block', height: 340, width: 'auto', maxWidth: '90%', margin: '0 auto', objectFit: 'contain', objectPosition: 'bottom center', filter: 'drop-shadow(0 20px 34px rgba(10,16,40,0.55))' }}
+            />
+            <div style={{ position: 'absolute', top: 20, left: 2, display: 'flex', alignItems: 'center', gap: 7, background: '#FFC805', color: '#1D2540', borderRadius: 13, padding: '10px 15px', fontWeight: 700, fontSize: 12.5, boxShadow: '0 14px 28px -10px rgba(0,0,0,0.5)', animation: 'riFloat 5s ease-in-out infinite' }}>
+              <Svg inner={IC.zap} size={14} sw={2.2} />
+              Same-day available
+            </div>
+            <div style={{ position: 'absolute', bottom: 24, left: 2, display: 'flex', alignItems: 'center', gap: 8, background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 13, padding: '10px 15px', fontWeight: 600, fontSize: 12, color: '#1D2540', boxShadow: '0 14px 28px -10px rgba(10,16,40,0.4)', animation: 'riFloat2 6s ease-in-out infinite' }}>
+              <Svg inner={IC.shieldCheck} size={15} stroke="#4AA4EA" sw={2} />
+              Bonded · Lic. #7901273409
             </div>
           </div>
 

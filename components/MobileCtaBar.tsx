@@ -15,7 +15,9 @@ export default function MobileCtaBar() {
       const hero = document.getElementById('top');
       if (!hero) return;
       const bottom = hero.getBoundingClientRect().bottom;
-      setShow(bottom < 90);
+      // Reveal only once the whole hero (first block) has scrolled above the
+      // viewport — i.e. we're into the second block.
+      setShow(bottom <= 0);
     };
     const onScroll = () => {
       if (!raf) raf = window.requestAnimationFrame(update);
