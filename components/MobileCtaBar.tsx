@@ -7,16 +7,27 @@ export default function MobileCtaBar() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const hero = document.getElementById('top');
-    if (!hero) return;
-    // Show the bar only once the hero (first block) is scrolled out of view,
+    // Show the bar only once we've scrolled past the hero (first block),
     // i.e. starting from the second block onward.
-    const io = new IntersectionObserver(
-      ([entry]) => setShow(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    io.observe(hero);
-    return () => io.disconnect();
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const hero = document.getElementById('top');
+      if (!hero) return;
+      const bottom = hero.getBoundingClientRect().bottom;
+      setShow(bottom < 90);
+    };
+    const onScroll = () => {
+      if (!raf) raf = window.requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (

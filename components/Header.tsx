@@ -9,15 +9,15 @@ const PHONE_HREF = 'tel:+13236451600';
 type Pill = { label: string; href: string; icon: string; tint: string; img: string; desc: string };
 
 const SERVICES: Pill[] = [
-  { label: 'Russian Visa', href: '#immigration', icon: IC.feather, tint: '#FFF3D6', img: '/images/services/visa.webp', desc: 'Expedited visas in 48–72 hours — guaranteed or your money back.' },
-  { label: 'Apostille Services', href: '#international', icon: IC.fileSeal, tint: '#ECEBFB', img: '/images/services/apostille.webp', desc: 'State & federal apostilles accepted in 190+ countries.' },
-  { label: 'Mobile Notary', href: '#notarization', icon: IC.mapPin, tint: '#DBF3E8', img: '/images/services/notary.webp', desc: 'We come to you — same-day notary across Southern California.' },
-  { label: 'Document Translation', href: '#international', icon: IC.scale, tint: '#EAF3D8', img: '/images/services/translation.webp', desc: 'ATA-certified translation in any language, certified for filing.' },
-  { label: 'Live Scan', href: '#immigration', icon: IC.fingerprint, tint: '#DEEEFB', img: '/images/services/livescan.webp', desc: 'DOJ & FBI-approved digital fingerprinting on site.' },
-  { label: 'Green Card', href: '#immigration', icon: IC.idCard, tint: '#DBF3E8', img: '/images/services/greencard.webp', desc: 'Family, employment & DV-lottery green card filings.' },
-  { label: 'Marriage-Based Green Card', href: '#immigration', icon: IC.heart, tint: '#DBF3E8', img: '/images/services/marriage-gc.webp', desc: 'Compliant spousal petitions prepared start to finish.' },
-  { label: 'Green Card Through the Diversity', href: '#immigration', icon: IC.globe, tint: '#F7E3F1', img: '/images/services/diversity.webp', desc: 'DV-lottery preparation and submission, handled for you.' },
-  { label: 'Same-Day Marriage Services', href: '#services', icon: IC.heart, tint: '#F7E3F1', img: '/images/services/marriage.webp', desc: 'Confidential same-day marriage licensing & ceremony in LA.' },
+  { label: 'Russian Visa', href: '/#immigration', icon: IC.feather, tint: '#FFF3D6', img: '/images/services/visa.webp', desc: 'Expedited visas in 48–72 hours — guaranteed or your money back.' },
+  { label: 'Apostille Services', href: '/#international', icon: IC.fileSeal, tint: '#ECEBFB', img: '/images/services/apostille.webp', desc: 'State & federal apostilles accepted in 190+ countries.' },
+  { label: 'Mobile Notary', href: '/#notarization', icon: IC.mapPin, tint: '#DBF3E8', img: '/images/services/notary.webp', desc: 'We come to you — same-day notary across Southern California.' },
+  { label: 'Document Translation', href: '/#international', icon: IC.scale, tint: '#EAF3D8', img: '/images/services/translation.webp', desc: 'ATA-certified translation in any language, certified for filing.' },
+  { label: 'Live Scan', href: '/#immigration', icon: IC.fingerprint, tint: '#DEEEFB', img: '/images/services/livescan.webp', desc: 'DOJ & FBI-approved digital fingerprinting on site.' },
+  { label: 'Green Card', href: '/#immigration', icon: IC.idCard, tint: '#DBF3E8', img: '/images/services/greencard.webp', desc: 'Family, employment & DV-lottery green card filings.' },
+  { label: 'Marriage-Based Green Card', href: '/#immigration', icon: IC.heart, tint: '#DBF3E8', img: '/images/services/marriage-gc.webp', desc: 'Compliant spousal petitions prepared start to finish.' },
+  { label: 'Green Card Through the Diversity', href: '/#immigration', icon: IC.globe, tint: '#F7E3F1', img: '/images/services/diversity.webp', desc: 'DV-lottery preparation and submission, handled for you.' },
+  { label: 'Same-Day Marriage Services', href: '/#services', icon: IC.heart, tint: '#F7E3F1', img: '/images/services/marriage.webp', desc: 'Confidential same-day marriage licensing & ceremony in LA.' },
 ];
 
 const OFFICES = [
@@ -27,7 +27,7 @@ const OFFICES = [
 
 function RushLogo({ onDark = false }: { onDark?: boolean }) {
   return (
-    <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: 11, flexShrink: 0 }}>
+    <a href="/#top" style={{ display: 'flex', alignItems: 'center', gap: 11, flexShrink: 0 }}>
       <div style={{ width: 42, height: 42, borderRadius: 12, background: onDark ? '#FFFFFF' : '#283778', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
         <span className="font-ub" style={{ fontWeight: 700, fontSize: 21, color: onDark ? '#283778' : '#FFFFFF' }}>R</span>
         <span style={{ position: 'absolute', right: -3, bottom: -3, width: 13, height: 13, borderRadius: '50%', background: '#FFC805', border: '2px solid #FFFFFF' }} />
@@ -77,8 +77,8 @@ export default function Header() {
       {/* ---------- MAIN NAV BAR (desktop) ---------- */}
       <div className="ri-desktop-nav" style={{ background: 'linear-gradient(90deg, #283778 0%, #33438D 100%)' }}>
         <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 24px', height: 56, display: 'flex', alignItems: 'center', gap: 4 }}>
-          <a href="#top" className="ri-navlink" style={navLink}>Home</a>
-          <a href="#about" className="ri-navlink" style={navLink}>About</a>
+          <a href="/#top" className="ri-navlink" style={navLink}>Home</a>
+          <a href="/#about" className="ri-navlink" style={navLink}>About</a>
 
           {/* Services mega dropdown */}
           <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }} onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -126,12 +126,12 @@ export default function Header() {
             )}
           </div>
 
-          <a href="#news" className="ri-navlink" style={navLink}>News</a>
-          <a href="#contacts" className="ri-navlink" style={navLink}>Contacts</a>
+          <a href="/#news" className="ri-navlink" style={navLink}>News</a>
+          <a href="/#contacts" className="ri-navlink" style={navLink}>Contacts</a>
 
           {/* Our Offices dropdown */}
           <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }} onMouseEnter={() => setOfficesOpen(true)} onMouseLeave={() => setOfficesOpen(false)}>
-            <a href="#offices" className="ri-navlink" style={navLink}>
+            <a href="/#offices" className="ri-navlink" style={navLink}>
               Our Offices
               <Svg inner={IC.chevron} size={13} sw={2.5} style={{ transform: officesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
             </a>
@@ -139,7 +139,7 @@ export default function Header() {
               <div style={{ position: 'absolute', top: '100%', left: 0, paddingTop: 10, zIndex: 100 }}>
                 <div style={{ background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 16, boxShadow: '0 24px 48px -14px rgba(40,55,120,0.24)', padding: 8, width: 260, display: 'flex', flexDirection: 'column', gap: 2 }}>
                   {OFFICES.map((o) => (
-                    <a key={o.name} href="#offices" onClick={() => setOfficesOpen(false)} className="ri-drop" style={{ display: 'flex', gap: 11, padding: '11px 14px', borderRadius: 10 }}>
+                    <a key={o.name} href="/#offices" onClick={() => setOfficesOpen(false)} className="ri-drop" style={{ display: 'flex', gap: 11, padding: '11px 14px', borderRadius: 10 }}>
                       <Svg inner={IC.mapPin} size={18} stroke="#FFC805" sw={2} style={{ flexShrink: 0, marginTop: 1 }} />
                       <span>
                         <span className="font-ub" style={{ display: 'block', fontWeight: 700, fontSize: 14, color: '#1D2540' }}>{o.name}</span>
@@ -181,8 +181,8 @@ export default function Header() {
       {mobileOpen && (
         <div className="ri-mobrow" style={{ background: '#FFFFFF', borderBottom: '1px solid #E4E8F3' }}>
           <div style={{ width: '100%', padding: '8px 20px 22px', display: 'flex', flexDirection: 'column', gap: 2, fontWeight: 600, fontSize: 16 }}>
-            <a href="#top" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Home</a>
-            <a href="#about" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>About</a>
+            <a href="/#top" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Home</a>
+            <a href="/#about" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>About</a>
 
             <button onClick={() => setMobServices((v) => !v)} className="ri-drop" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '13px 12px', borderRadius: 10, background: 'none', border: 'none', font: 'inherit', color: '#1D2540', cursor: 'pointer', width: '100%', textAlign: 'left' }}>
               Services
@@ -201,9 +201,9 @@ export default function Header() {
               </div>
             )}
 
-            <a href="#news" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>News</a>
-            <a href="#contacts" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Contacts</a>
-            <a href="#offices" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Our Offices</a>
+            <a href="/#news" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>News</a>
+            <a href="/#contacts" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Contacts</a>
+            <a href="/#offices" onClick={() => setMobileOpen(false)} className="ri-drop" style={{ padding: '13px 12px', borderRadius: 10, color: '#1D2540' }}>Our Offices</a>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '14px 12px 4px', fontFamily: "'Ubuntu', sans-serif", fontWeight: 700, fontSize: 16 }}>
               <button onClick={() => setLang('en')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px', borderRadius: 8, color: lang === 'en' ? '#283778' : '#8A91A8', font: 'inherit' }}>EN</button>
@@ -211,7 +211,7 @@ export default function Header() {
               <button onClick={() => setLang('ru')} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px 8px', borderRadius: 8, color: lang === 'ru' ? '#283778' : '#8A91A8', font: 'inherit' }}>RU</button>
             </div>
 
-            <a href="#final-cta" onClick={() => setMobileOpen(false)} style={{ marginTop: 10, background: '#FFC805', color: '#1D2540', padding: 16, borderRadius: 12, textAlign: 'center', fontWeight: 700 }}>Get a Quote</a>
+            <a href="/#final-cta" onClick={() => setMobileOpen(false)} style={{ marginTop: 10, background: '#FFC805', color: '#1D2540', padding: 16, borderRadius: 12, textAlign: 'center', fontWeight: 700 }}>Get a Quote</a>
           </div>
         </div>
       )}

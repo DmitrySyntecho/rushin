@@ -427,4 +427,24 @@ textarea:focus {
   .ri-form-2col {
     grid-template-columns: 1fr !important;
   }
+
+  /* Team: small horizontally-scrolling cards instead of huge stacked ones */
+  .ri-team-grid {
+    display: flex !important;
+    grid-template-columns: none !important;
+    overflow-x: auto;
+    gap: 14px !important;
+    scroll-snap-type: x mandatory;
+    margin: 32px -20px 0 !important;
+    padding: 4px 20px 14px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .ri-team-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .ri-team-grid > .ri-team-card {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+  }
 }

@@ -241,12 +241,15 @@ export function Immigration() {
           </p>
           <div style={{ marginTop: 30, display: 'flex', flexDirection: 'column', gap: 0 }}>
             {[
-              { k: '48–72h', v: 'Expedited visa processing — guaranteed, or your money back.', b: true },
-              { k: '2–4d', v: 'Fast-track passport service — no queues, delivered to you.', b: true },
-              { k: '100%', v: 'Compliant green card paperwork, prepared by specialists.', b: false },
+              { k: '48–72h', v: 'Expedited visa processing — guaranteed, or your money back.', b: true, icon: IC.clock },
+              { k: '2–4d', v: 'Fast-track passport service — no queues, delivered to you.', b: true, icon: IC.globe },
+              { k: '100%', v: 'Compliant green card paperwork, prepared by specialists.', b: false, icon: IC.shieldCheck },
             ].map((r) => (
-              <div key={r.k} style={{ display: 'flex', gap: 16, padding: '18px 0', borderBottom: r.b ? '1px solid #EDF1F9' : 'none' }}>
-                <div className="font-ub" style={{ fontWeight: 700, fontSize: 26, color: '#4AA4EA', minWidth: 88 }}>{r.k}</div>
+              <div key={r.k} style={{ display: 'flex', gap: 16, alignItems: 'center', padding: '18px 0', borderBottom: r.b ? '1px solid #EDF1F9' : 'none' }}>
+                <div style={{ width: 46, height: 46, borderRadius: 13, background: '#F2F5FB', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Svg inner={r.icon} size={22} stroke="#283778" sw={1.75} />
+                </div>
+                <div className="font-ub" style={{ fontWeight: 700, fontSize: 26, color: '#4AA4EA', minWidth: 74 }}>{r.k}</div>
                 <div style={{ fontSize: 14, lineHeight: 1.55, color: '#5B6480' }}>{r.v}</div>
               </div>
             ))}
@@ -364,7 +367,7 @@ export function Team() {
             View all team
           </a>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 20, marginTop: 44 }}>
+        <div className="ri-team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))', gap: 20, marginTop: 44 }}>
           {team.map((m) => (
             <div key={m.name} className="ri-team-card" style={{ background: '#F6F8FC', borderRadius: 20, overflow: 'hidden' }}>
               <div style={{ aspectRatio: '1 / 1.05', overflow: 'hidden' }}>

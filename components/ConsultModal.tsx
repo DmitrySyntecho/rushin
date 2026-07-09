@@ -225,6 +225,11 @@ export default function BookConsult({
                       <label style={labelStyle}>Phone</label>
                       <input type="tel" value={data.phone} onChange={(e) => set({ phone: e.target.value })} placeholder="+1 (___) ___-____" style={inputStyle} className="ri-modal-input" />
                     </div>
+                    <p style={{ fontSize: 11.5, lineHeight: 1.55, color: '#8A91A8', margin: '2px 0 0' }}>
+                      By providing your contact details you agree to our{' '}
+                      <a href="/privacy" target="_blank" rel="noopener" style={{ color: '#283778', fontWeight: 700, textDecoration: 'underline' }}>Privacy Policy</a>{' '}
+                      and consent to be contacted about your request by phone, email, or messenger.
+                    </p>
                   </div>
                 )}
 
