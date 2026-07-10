@@ -58,16 +58,16 @@ export default function Hero() {
           </h1>
 
           {/* Mobile-only: Vadim in an elegant framed card with floating badges */}
-          <div className="ri-hero-vadim-mobile" style={{ display: 'none', width: '100%', maxWidth: 440, margin: '14px auto 0' }}>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1.05', borderRadius: 22, overflow: 'hidden', background: '#1D2A5E', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 22px 46px -20px rgba(10,16,40,0.6)' }}>
+          <div className="ri-hero-vadim-mobile" style={{ display: 'none', width: '100%', maxWidth: 420, margin: '12px auto 0' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 0.9', borderRadius: 22, overflow: 'hidden', background: '#1D2A5E', border: '1px solid rgba(255,255,255,0.16)', boxShadow: '0 22px 46px -20px rgba(10,16,40,0.6)' }}>
               <img src="/images/hero-bg.webp" alt="" aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,28,64,0.4) 0%, rgba(20,28,64,0.1) 45%, rgba(20,28,64,0.5) 100%)' }} />
-              <img src="/images/hero-vadim.webp" alt="Vadim — Executive Director & Immigration Consultant at Rush In" style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', height: '99%', width: 'auto', maxWidth: '112%', objectFit: 'contain', objectPosition: 'bottom center' }} />
-              <div style={{ position: 'absolute', bottom: 86, right: 12, display: 'flex', alignItems: 'center', gap: 7, background: '#FFC805', color: '#1D2540', borderRadius: 13, padding: '10px 15px', fontWeight: 700, fontSize: 12.5, boxShadow: '0 14px 28px -10px rgba(0,0,0,0.5)', animation: 'riFloat 5s ease-in-out infinite' }}>
+              <img src="/images/hero-vadim.webp" alt="Vadim — Executive Director & Immigration Consultant at Rush In" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+              <div style={{ position: 'absolute', bottom: '32%', right: 10, display: 'flex', alignItems: 'center', gap: 7, background: '#FFC805', color: '#1D2540', borderRadius: 13, padding: '10px 15px', fontWeight: 700, fontSize: 12.5, boxShadow: '0 14px 28px -10px rgba(0,0,0,0.5)', animation: 'riFloat 5s ease-in-out infinite' }}>
                 <Svg inner={IC.zap} size={14} sw={2.2} />
                 Same-day available
               </div>
-              <div style={{ position: 'absolute', bottom: 14, left: 12, display: 'flex', alignItems: 'center', gap: 8, background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 13, padding: '9px 14px', fontWeight: 600, fontSize: 11.5, color: '#1D2540', boxShadow: '0 14px 28px -10px rgba(10,16,40,0.4)', animation: 'riFloat2 6s ease-in-out infinite' }}>
+              <div style={{ position: 'absolute', bottom: '11%', left: 10, display: 'flex', alignItems: 'center', gap: 8, background: '#FFFFFF', border: '1px solid #E4E8F3', borderRadius: 13, padding: '9px 14px', fontWeight: 600, fontSize: 11.5, color: '#1D2540', boxShadow: '0 14px 28px -10px rgba(10,16,40,0.4)', animation: 'riFloat2 6s ease-in-out infinite' }}>
                 <Svg inner={IC.shieldCheck} size={14} stroke="#4AA4EA" sw={2} />
                 Bonded · Lic. #7901273409
               </div>

@@ -355,7 +355,7 @@ textarea:focus {
 /* ============ Mobile hero + buttons + trust grid ============ */
 @media (max-width: 768px) {
   .ri-hero-content {
-    padding-top: 40px !important;
+    padding-top: 18px !important;
     padding-left: 18px !important;
     padding-right: 18px !important;
     gap: 4px !important;
@@ -377,7 +377,7 @@ textarea:focus {
     font-size: clamp(21px, 6vw, 28px) !important;
     line-height: 1.16 !important;
     max-width: 100% !important;
-    margin: 20px auto 0 !important;
+    margin: 0 auto !important;
   }
   .ri-hero-vadim-mobile {
     order: 3;
