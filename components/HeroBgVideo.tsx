@@ -35,7 +35,7 @@ export default function HeroBgVideo() {
       aria-hidden="true"
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
     >
-      <source src="/videos/hero-office.mp4" type="video/mp4" />
+      <source src="/videos/hero-office2.mp4" type="video/mp4" />
     </video>
   );
 }
