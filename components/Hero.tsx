@@ -1,6 +1,7 @@
 import React from 'react';
 import { Svg, IC } from './icons';
 import { BookButton } from './ConsultModal';
+import HeroBgVideo from './HeroBgVideo';
 const LIGHT_BLUE = '#8FBEF0';
 
 function TrustItem({ inner, children }: { inner: string; children: React.ReactNode }) {
@@ -16,18 +17,7 @@ export default function Hero() {
   return (
     <section id="top" style={{ position: 'relative', overflow: 'hidden', background: '#151C40' }}>
       {/* Full-bleed office background video — static camera, staff working in the background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/images/hero-bg.webp"
-        aria-hidden="true"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-      >
-        <source src="/videos/hero-office.mp4" type="video/mp4" />
-      </video>
+      <HeroBgVideo />
       {/* Dark-blue gradient overlay */}
       <div
         style={{
