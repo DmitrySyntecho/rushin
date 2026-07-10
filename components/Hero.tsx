@@ -15,12 +15,19 @@ function TrustItem({ inner, children }: { inner: string; children: React.ReactNo
 export default function Hero() {
   return (
     <section id="top" style={{ position: 'relative', overflow: 'hidden', background: '#151C40' }}>
-      {/* Full-bleed office background */}
-      <img
-        src="/images/hero-bg.webp"
-        alt="Rush In documentation office in Southern California"
+      {/* Full-bleed office background video — static camera, staff working in the background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/images/hero-bg.webp"
+        aria-hidden="true"
         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-      />
+      >
+        <source src="/videos/hero-office.mp4" type="video/mp4" />
+      </video>
       {/* Dark-blue gradient overlay */}
       <div
         style={{
