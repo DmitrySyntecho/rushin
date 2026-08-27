@@ -95,7 +95,7 @@ export default function Footer() {
         <div style={{ padding: '20px 0 28px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'space-between', alignItems: 'center', fontSize: 12 }}>
           <div>Copyright © 2026. All Rights Reserved</div>
           <div style={{ display: 'flex', gap: 20 }}>
-            <a href="https://rushindocumentation.com/styleguide/" target="_blank" rel="noopener" className="ri-foot" style={{ color: '#B9C1DE' }}>Styleguide</a>
+            <a href="/styleguide" className="ri-foot" style={{ color: '#B9C1DE' }}>Style Guide</a>
             <a href="/privacy" className="ri-foot" style={{ color: '#B9C1DE' }}>Privacy Policy</a>
             <a href="https://www.syntecho.com/" target="_blank" rel="noopener" className="ri-foot" style={{ color: '#B9C1DE' }}>Powered by Syntecho</a>
           </div>

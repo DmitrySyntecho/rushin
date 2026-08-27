@@ -1,0 +1,79 @@
+{
+  "color": {
+    "brand-primary": "#283778",
+    "brand-primary-hover": "#33438D",
+    "brand-primary-deep": "#1D2A5E",
+    "brand-ink": "#1D2540",
+    "brand-navy-footer": "#1B2450",
+    "brand-navy-hero": "#151C40",
+    "brand-accent": "#FFC805",
+    "brand-accent-hover": "#FFD84D",
+    "brand-gold-logo": "#FFD300",
+    "brand-blue": "#4AA4EA",
+    "brand-blue-soft": "#8FBEF0",
+    "text-muted": "#5B6480",
+    "text-subtle": "#8A91A8",
+    "border": "#E4E8F3",
+    "border-strong": "#C9D2E8",
+    "surface": "#FFFFFF",
+    "surface-1": "#F6F8FC",
+    "surface-2": "#F2F5FB",
+    "surface-3": "#EEF1F8",
+    "success": "#2E7D46",
+    "success-bg": "#F0F9EE",
+    "warn-text": "#6B5407",
+    "warn-bg": "#FFF9E6",
+    "warn-border": "#F5E3A0"
+  },
+  "gradient": {
+    "grad-primary": "linear-gradient(90deg, #283778 0%, #33438D 100%)",
+    "grad-hero": "linear-gradient(105deg, #12193a 0%, #161f48 40%, #1d2a5e 70%, #1d2a5e 100%)",
+    "grad-urgent": "linear-gradient(120deg, #1D2A5E 0%, #283778 55%, #33438D 100%)",
+    "grad-cta": "linear-gradient(135deg, #F6F8FC 0%, #EAF2FC 60%, #FFF6DC 130%)",
+    "grad-gold": "linear-gradient(150deg, #FFD300 0%, #F8A600 55%, #EB501E 100%)"
+  },
+  "font": {
+    "font-heading": "'Ubuntu', sans-serif",
+    "font-body": "'Montserrat', system-ui, sans-serif"
+  },
+  "radius": {
+    "radius-sm": "10px",
+    "radius-md": "12px",
+    "radius-lg": "14px",
+    "radius-xl": "18px",
+    "radius-2xl": "20px",
+    "radius-3xl": "24px",
+    "radius-pill": "999px"
+  },
+  "shadow": {
+    "shadow-float": "0 16px 32px -10px rgba(40,55,120,0.25)",
+    "shadow-card": "0 20px 40px -14px rgba(40,55,120,0.22)",
+    "shadow-btn": "0 12px 24px -8px rgba(40,55,120,0.45)",
+    "shadow-pop": "0 30px 60px -18px rgba(40,55,120,0.32)",
+    "shadow-modal": "0 40px 80px -24px rgba(15,21,52,0.6)"
+  },
+  "space": {
+    "space-1": "4px",
+    "space-2": "8px",
+    "space-3": "12px",
+    "space-4": "16px",
+    "space-5": "20px",
+    "space-6": "24px",
+    "space-8": "32px",
+    "space-10": "40px",
+    "space-14": "56px",
+    "space-18": "72px",
+    "space-24": "96px"
+  },
+  "layout": {
+    "container": "1240px",
+    "container-narrow": "880px"
+  },
+  "motion": {
+    "dur-fast": "0.15s",
+    "dur-mid": "0.2s",
+    "dur-slow": "0.25s",
+    "ease": "ease",
+    "ease-in-out": "ease-in-out"
+  }
+}
