@@ -12,7 +12,7 @@ const banners = [
     offer: 'Same-day available',
   },
   {
-    out: 'banner-1x1', src: 'public/brand/banners/bg-1x1-v2.webp', W: 1080, H: 1080, align: 'center',
+    out: 'banner-1x1', src: 'public/brand/banners/bg-1x1-v2.webp', W: 1080, H: 1080, align: 'left',
     eyebrow: 'RUSH IN DOCUMENTATION',
     title: ['Apostille in', '190+ countries'],
     offer: 'Get a quote today',

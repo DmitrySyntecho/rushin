@@ -116,7 +116,7 @@ const ICON_KEYS = Object.keys(IC).filter((k) => k !== 'inner' && k !== 'chevron'
 
 const BANNERS = [
   { key: '16x9', ratio: '16 / 9', bg: '/brand/banners/bg-16x9-v2.webp', w: 640, eyebrow: 'SINCE 1994 · SOUTHERN CALIFORNIA', title: 'Notary, Apostille & Documents — Done Right', desc: 'Certified professionals, same-day service.', offer: 'Same-day available', align: 'left' },
-  { key: '1x1', ratio: '1 / 1', bg: '/brand/banners/bg-1x1-v2.webp', w: 380, eyebrow: 'RUSH IN DOCUMENTATION', title: 'Apostille in 190+ countries', desc: 'State & federal, handled end to end.', offer: 'Get a quote today', align: 'center' },
+  { key: '1x1', ratio: '1 / 1', bg: '/brand/banners/bg-1x1-v2.webp', w: 380, eyebrow: 'RUSH IN DOCUMENTATION', title: 'Apostille in 190+ countries', desc: 'State & federal, handled end to end.', offer: 'Get a quote today', align: 'left' },
   { key: '4x5', ratio: '4 / 5', bg: '/brand/banners/bg-4x5-v2.webp', w: 380, eyebrow: 'MOBILE NOTARY', title: 'We come to you', desc: 'Same-day across Los Angeles & San Diego.', offer: 'Book a consultation', align: 'left' },
   { key: '9x16', ratio: '9 / 16', bg: '/brand/banners/bg-9x16-v2.webp', w: 300, eyebrow: 'URGENT SERVICE', title: 'Need it done today?', desc: 'Fast, secure document services.', offer: 'Call 24/7 hotline', align: 'center' },
 ];
