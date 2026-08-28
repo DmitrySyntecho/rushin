@@ -6,19 +6,19 @@ const FH = "Ubuntu, 'Segoe UI', Arial, sans-serif";
 
 const banners = [
   {
-    out: 'banner-16x9', src: 'public/brand/banners/bg-16x9.webp', W: 1600, H: 900, align: 'left',
+    out: 'banner-16x9', src: 'public/brand/banners/bg-16x9-v2.webp', W: 1600, H: 900, align: 'left',
     eyebrow: 'SINCE 1994 · SOUTHERN CALIFORNIA',
     title: ['Notary, Apostille &', 'Documents — Done Right'],
     offer: 'Same-day available',
   },
   {
-    out: 'banner-1x1', src: 'public/brand/banners/bg-1x1.webp', W: 1080, H: 1080, align: 'center',
+    out: 'banner-1x1', src: 'public/brand/banners/bg-1x1-v2.webp', W: 1080, H: 1080, align: 'center',
     eyebrow: 'RUSH IN DOCUMENTATION',
     title: ['Apostille in', '190+ countries'],
     offer: 'Get a quote today',
   },
   {
-    out: 'banner-9x16', src: 'public/brand/banners/bg-9x16.webp', W: 1080, H: 1920, align: 'center',
+    out: 'banner-9x16', src: 'public/brand/banners/bg-9x16-v2.webp', W: 1080, H: 1920, align: 'center',
     eyebrow: 'URGENT SERVICE',
     title: ['Need it', 'done today?'],
     offer: 'Call 24/7 hotline',
@@ -30,7 +30,7 @@ for (const b of banners) {
   const pad = Math.round(b.W * (left ? 0.06 : 0.08));
   const cx = left ? pad : b.W / 2;
   const anchor = left ? 'start' : 'middle';
-  const titleSize = Math.round(b.W * (b.W === 1600 ? 0.052 : 0.085));
+  const titleSize = Math.round(b.W * (b.W === 1600 ? 0.066 : 0.104));
   const lineH = Math.round(titleSize * 1.12);
   // vertical anchor: 16:9 center-left, others lower third
   let ty = left ? Math.round(b.H * 0.46) : Math.round(b.H * 0.62);
@@ -49,7 +49,7 @@ for (const b of banners) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${b.W}" height="${b.H}">
     <defs>${scrim}</defs>
     <rect width="${b.W}" height="${b.H}" fill="url(#s)"/>
-    <text x="${cx}" y="${eyeY}" font-family="${F}" font-size="${Math.round(b.W * 0.017)}" font-weight="700" letter-spacing="3" fill="#FFC805" text-anchor="${anchor}">${esc(b.eyebrow)}</text>
+    <text x="${cx}" y="${eyeY}" font-family="${F}" font-size="${Math.round(b.W * 0.021)}" font-weight="700" letter-spacing="3" fill="#FFC805" text-anchor="${anchor}">${esc(b.eyebrow)}</text>
     ${titleSpans}
     <rect x="${offerX}" y="${offerY}" width="${offerW}" height="${Math.round(titleSize * 0.92)}" rx="${Math.round(titleSize * 0.28)}" fill="#FFC805"/>
     <text x="${offerX + offerW / 2}" y="${offerY + Math.round(titleSize * 0.62)}" font-family="${F}" font-size="${Math.round(titleSize * 0.42)}" font-weight="700" fill="#1D2540" text-anchor="middle">${esc(b.offer)}</text>

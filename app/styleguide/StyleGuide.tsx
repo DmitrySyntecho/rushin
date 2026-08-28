@@ -115,10 +115,10 @@ const SERVICE_TINTS = ['#FFF3D6', '#ECEBFB', '#DBF3E8', '#EAF3D8', '#DEEEFB', '#
 const ICON_KEYS = Object.keys(IC).filter((k) => k !== 'inner' && k !== 'chevron');
 
 const BANNERS = [
-  { key: '16x9', ratio: '16 / 9', bg: '/brand/banners/bg-16x9.webp', w: 640, eyebrow: 'SINCE 1994 · SOUTHERN CALIFORNIA', title: 'Notary, Apostille & Documents — Done Right', desc: 'Certified professionals, same-day service.', offer: 'Same-day available', align: 'left' },
-  { key: '1x1', ratio: '1 / 1', bg: '/brand/banners/bg-1x1.webp', w: 380, eyebrow: 'RUSH IN DOCUMENTATION', title: 'Apostille in 190+ countries', desc: 'State & federal, handled end to end.', offer: 'Get a quote today', align: 'center' },
-  { key: '4x5', ratio: '4 / 5', bg: '/brand/banners/bg-4x5.webp', w: 380, eyebrow: 'MOBILE NOTARY', title: 'We come to you', desc: 'Same-day across Los Angeles & San Diego.', offer: 'Book a consultation', align: 'left' },
-  { key: '9x16', ratio: '9 / 16', bg: '/brand/banners/bg-9x16.webp', w: 300, eyebrow: 'URGENT SERVICE', title: 'Need it done today?', desc: 'Fast, secure document services.', offer: 'Call 24/7 hotline', align: 'center' },
+  { key: '16x9', ratio: '16 / 9', bg: '/brand/banners/bg-16x9-v2.webp', w: 640, eyebrow: 'SINCE 1994 · SOUTHERN CALIFORNIA', title: 'Notary, Apostille & Documents — Done Right', desc: 'Certified professionals, same-day service.', offer: 'Same-day available', align: 'left' },
+  { key: '1x1', ratio: '1 / 1', bg: '/brand/banners/bg-1x1-v2.webp', w: 380, eyebrow: 'RUSH IN DOCUMENTATION', title: 'Apostille in 190+ countries', desc: 'State & federal, handled end to end.', offer: 'Get a quote today', align: 'center' },
+  { key: '4x5', ratio: '4 / 5', bg: '/brand/banners/bg-4x5-v2.webp', w: 380, eyebrow: 'MOBILE NOTARY', title: 'We come to you', desc: 'Same-day across Los Angeles & San Diego.', offer: 'Book a consultation', align: 'left' },
+  { key: '9x16', ratio: '9 / 16', bg: '/brand/banners/bg-9x16-v2.webp', w: 300, eyebrow: 'URGENT SERVICE', title: 'Need it done today?', desc: 'Fast, secure document services.', offer: 'Call 24/7 hotline', align: 'center' },
 ];
 
 const AI_PROMPTS = [
@@ -759,12 +759,12 @@ function Banner({ b }: { b: typeof BANNERS[number] }) {
       <div style={{ position: 'relative', width: '100%', maxWidth: b.w, aspectRatio: b.ratio, borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-card)', border: '1px solid var(--border)' }}>
         <img src={b.bg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={{ position: 'absolute', inset: 0, background: b.align === 'center' ? 'linear-gradient(180deg, rgba(16,22,48,0.35), rgba(16,22,48,0.78))' : 'linear-gradient(90deg, rgba(16,22,48,0.86) 0%, rgba(16,22,48,0.5) 55%, rgba(16,22,48,0.15) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, padding: 'clamp(14px, 4%, 26px)', display: 'flex', flexDirection: 'column', justifyContent: b.align === 'center' ? 'flex-end' : 'center', alignItems: b.align === 'center' ? 'center' : 'flex-start', textAlign: b.align === 'center' ? 'center' : 'left', color: '#fff' }}>
-          <img src="/rushin-logo-white.svg" alt="Rush In" style={{ height: 16, marginBottom: 10, opacity: 0.95 }} />
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', color: 'var(--brand-accent)' }}>{b.eyebrow}</div>
-          <div className="font-ub" style={{ fontSize: 'clamp(16px, 5.5%, 26px)', fontWeight: 700, lineHeight: 1.12, marginTop: 8, maxWidth: '92%' }}>{b.title}</div>
-          <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,0.85)', marginTop: 8, maxWidth: '90%' }}>{b.desc}</div>
-          <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center', marginTop: 14, background: 'var(--brand-accent)', color: 'var(--brand-ink)', padding: '9px 15px', borderRadius: 10, fontWeight: 700, fontSize: 12 }}><Svg inner={IC.zap} size={13} sw={2.2} /> {b.offer}</span>
+        <div style={{ position: 'absolute', inset: 0, padding: 'clamp(18px, 6%, 34px)', display: 'flex', flexDirection: 'column', justifyContent: b.align === 'center' ? 'flex-end' : 'center', alignItems: b.align === 'center' ? 'center' : 'flex-start', textAlign: b.align === 'center' ? 'center' : 'left', color: '#fff' }}>
+          <img src="/rushin-logo-white.svg" alt="Rush In" style={{ height: 20, marginBottom: 12, opacity: 0.95 }} />
+          <div style={{ fontSize: 'clamp(10px, 2.6%, 14px)', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--brand-accent)' }}>{b.eyebrow}</div>
+          <div className="font-ub" style={{ fontSize: 'clamp(22px, 8.5%, 46px)', fontWeight: 700, lineHeight: 1.08, marginTop: 8, maxWidth: '94%', textShadow: '0 2px 14px rgba(10,16,40,0.45)' }}>{b.title}</div>
+          <div style={{ fontSize: 'clamp(12px, 3.2%, 17px)', color: 'rgba(255,255,255,0.9)', marginTop: 10, maxWidth: '92%', lineHeight: 1.4 }}>{b.desc}</div>
+          <span style={{ display: 'inline-flex', gap: 8, alignItems: 'center', marginTop: 16, background: 'var(--brand-accent)', color: 'var(--brand-ink)', padding: 'clamp(9px,2.6%,14px) clamp(14px,4%,22px)', borderRadius: 12, fontWeight: 700, fontSize: 'clamp(12px, 3.4%, 18px)', boxShadow: '0 10px 24px -8px rgba(0,0,0,0.45)' }}><Svg inner={IC.zap} size={15} sw={2.2} /> {b.offer}</span>
         </div>
       </div>
       <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 8 }}>{b.key.replace('x', ':')} · {b.eyebrow.split(' ')[0]}</div>
