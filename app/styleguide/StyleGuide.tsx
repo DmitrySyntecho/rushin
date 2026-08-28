@@ -588,8 +588,9 @@ export default function StyleGuide() {
 
             {/* 13 BANNERS */}
             <Section id="banners" num="13" eyebrow="Banner concepts" title="Ready-made ad banners" lead="Real campaign banners — eyebrow, headline, offer and CTA locked to the brand type and palette, on Higgsfield-generated navy/gold backgrounds with a darkening scrim for legibility.">
-              <div className="sg-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', marginTop: 24, alignItems: 'start' }}>
-                {BANNERS.map((b) => <Banner key={b.key} b={b} />)}
+              <div style={{ marginTop: 24 }}><Banner b={BANNERS[0]} full /></div>
+              <div className="sg-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', marginTop: 16, alignItems: 'start' }}>
+                {BANNERS.slice(1).map((b) => <Banner key={b.key} b={b} />)}
               </div>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 18 }}>
                 <DL href="/brand/banners/banner-16x9.png">Banner 16:9 PNG</DL>
@@ -753,18 +754,24 @@ function SGAccordion() {
   );
 }
 
-function Banner({ b }: { b: typeof BANNERS[number] }) {
+function Banner({ b, full }: { b: typeof BANNERS[number]; full?: boolean }) {
+  const left = b.align !== 'center';
+  const scrim = left
+    ? 'linear-gradient(90deg, rgba(14,20,44,0.82) 0%, rgba(14,20,44,0.45) 44%, rgba(14,20,44,0.04) 74%)'
+    : 'linear-gradient(180deg, rgba(14,20,44,0) 32%, rgba(14,20,44,0.34) 60%, rgba(14,20,44,0.9) 100%)';
   return (
     <div>
-      <div style={{ position: 'relative', width: '100%', maxWidth: b.w, aspectRatio: b.ratio, borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-card)', border: '1px solid var(--border)' }}>
+      <div style={{ position: 'relative', width: '100%', maxWidth: full ? '100%' : b.w, aspectRatio: b.ratio, borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-card)', border: '1px solid var(--border)', containerType: 'inline-size' }}>
         <img src={b.bg} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', inset: 0, background: b.align === 'center' ? 'linear-gradient(180deg, rgba(16,22,48,0.35), rgba(16,22,48,0.78))' : 'linear-gradient(90deg, rgba(16,22,48,0.86) 0%, rgba(16,22,48,0.5) 55%, rgba(16,22,48,0.15) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, padding: 'clamp(18px, 6%, 34px)', display: 'flex', flexDirection: 'column', justifyContent: b.align === 'center' ? 'flex-end' : 'center', alignItems: b.align === 'center' ? 'center' : 'flex-start', textAlign: b.align === 'center' ? 'center' : 'left', color: '#fff' }}>
-          <img src="/rushin-logo-white.svg" alt="Rush In" style={{ height: 20, marginBottom: 12, opacity: 0.95 }} />
-          <div style={{ fontSize: 'clamp(10px, 2.6%, 14px)', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--brand-accent)' }}>{b.eyebrow}</div>
-          <div className="font-ub" style={{ fontSize: 'clamp(22px, 8.5%, 46px)', fontWeight: 700, lineHeight: 1.08, marginTop: 8, maxWidth: '94%', textShadow: '0 2px 14px rgba(10,16,40,0.45)' }}>{b.title}</div>
-          <div style={{ fontSize: 'clamp(12px, 3.2%, 17px)', color: 'rgba(255,255,255,0.9)', marginTop: 10, maxWidth: '92%', lineHeight: 1.4 }}>{b.desc}</div>
-          <span style={{ display: 'inline-flex', gap: 8, alignItems: 'center', marginTop: 16, background: 'var(--brand-accent)', color: 'var(--brand-ink)', padding: 'clamp(9px,2.6%,14px) clamp(14px,4%,22px)', borderRadius: 12, fontWeight: 700, fontSize: 'clamp(12px, 3.4%, 18px)', boxShadow: '0 10px 24px -8px rgba(0,0,0,0.45)' }}><Svg inner={IC.zap} size={15} sw={2.2} /> {b.offer}</span>
+        <div style={{ position: 'absolute', inset: 0, background: scrim }} />
+        <div style={{ position: 'absolute', inset: 0, padding: 'clamp(16px, 5cqw, 44px)', display: 'flex', flexDirection: 'column', justifyContent: left ? 'center' : 'flex-end', alignItems: left ? 'flex-start' : 'center', color: '#fff' }}>
+          <div style={{ maxWidth: left ? 'min(58%, 440px)' : '94%', display: 'flex', flexDirection: 'column', alignItems: left ? 'flex-start' : 'center', textAlign: left ? 'left' : 'center' }}>
+            <img src="/rushin-logo-white.svg" alt="Rush In" style={{ height: 'clamp(14px, 4.5cqw, 26px)', marginBottom: 'clamp(8px,2.4cqw,14px)', opacity: 0.95 }} />
+            <div style={{ fontSize: 'clamp(9px, 2.5cqw, 14px)', fontWeight: 700, letterSpacing: '0.1em', color: 'var(--brand-accent)' }}>{b.eyebrow}</div>
+            <div className="font-ub" style={{ fontSize: 'clamp(18px, 8cqw, 46px)', fontWeight: 700, lineHeight: 1.08, marginTop: 'clamp(5px,1.6cqw,10px)', textShadow: '0 2px 18px rgba(10,16,40,0.6)' }}>{b.title}</div>
+            <div style={{ fontSize: 'clamp(11px, 3cqw, 17px)', color: 'rgba(255,255,255,0.92)', marginTop: 'clamp(7px,2cqw,12px)', lineHeight: 1.4 }}>{b.desc}</div>
+            <span style={{ display: 'inline-flex', gap: 8, alignItems: 'center', marginTop: 'clamp(11px,3cqw,18px)', background: 'var(--brand-accent)', color: 'var(--brand-ink)', padding: 'clamp(8px,2.4cqw,14px) clamp(13px,3.8cqw,22px)', borderRadius: 12, fontWeight: 700, fontSize: 'clamp(11px, 3.3cqw, 18px)', boxShadow: '0 10px 24px -8px rgba(0,0,0,0.5)' }}><Svg inner={IC.zap} size={15} sw={2.2} /> {b.offer}</span>
+          </div>
         </div>
       </div>
       <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 8 }}>{b.key.replace('x', ':')} · {b.eyebrow.split(' ')[0]}</div>
